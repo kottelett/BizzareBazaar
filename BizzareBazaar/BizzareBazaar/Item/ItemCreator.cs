@@ -9,22 +9,23 @@ namespace BizzareBazaar
     class ItemCreator
     {
         string[] decorators = { "BasicItem", "Magic" };
-        IItem item;
+        IItem item = new BasicItem(10, "BasicItem");
         public IItem CreateRndItem()
         {
 
             Random rnd = new Random();
-            for (int i = 0; i < decorators.Length ; i++)
+            int rndNum = rnd.Next(0, 2);
+
+            for (int i = 0; i < decorators.Length; i++)
             {
-                if (i == rnd.Next(0, 2))
+
+                if (i == rndNum)
                 {
 
                     switch (decorators[i])
                     {
                         case "BasicItem":
-                            item = new BasicItem(10, "BasicItem");
                             break;
-
 
                         case "Magic":
                             item = new MagicDecorator(item);
@@ -34,9 +35,13 @@ namespace BizzareBazaar
 
                     }
 
+
                 }
 
+
             }
+            Console.WriteLine(rndNum);
+
             return item;
 
         }
