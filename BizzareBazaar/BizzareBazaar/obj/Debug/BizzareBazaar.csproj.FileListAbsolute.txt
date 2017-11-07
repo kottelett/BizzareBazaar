@@ -1,0 +1,7 @@
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\BizzareBazaar.exe.config
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\BizzareBazaar.exe
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\BizzareBazaar.pdb
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\obj\Debug\BizzareBazaar.csprojResolveAssemblyReference.cache
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\obj\Debug\BizzareBazaar.csproj.CoreCompileInputs.cache
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\obj\Debug\BizzareBazaar.exe
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\obj\Debug\BizzareBazaar.pdb

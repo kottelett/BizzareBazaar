@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Item\BasicItem.cs" />
+    <Compile Include="Item\IItem.cs" />
+    <Compile Include="Item\ItemCreator.cs" />
+    <Compile Include="Item\ItemDecorator.cs" />
+    <Compile Include="Item\MagicDecorator.cs" />
+    <Compile Include="PersonFactory\PersonFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
