@@ -9,9 +9,11 @@ namespace BizzareBazaar
     class ItemCreator
     {
         string[] decorators = { "BasicItem", "Magic" };
-        IItem item = new BasicItem(10, "BasicItem");
+
         public IItem CreateRndItem()
         {
+
+            IItem BasicItem = new BasicItem(10, "BasicItem");
 
             Random rnd = new Random();
             int rndNum = rnd.Next(0, 2);
@@ -28,7 +30,7 @@ namespace BizzareBazaar
                             break;
 
                         case "Magic":
-                            item = new MagicDecorator(item);
+                            BasicItem = new MagicDecorator(BasicItem);
                             break;
 
 
@@ -42,7 +44,7 @@ namespace BizzareBazaar
             }
             Console.WriteLine(rndNum);
 
-            return item;
+            return BasicItem;
 
         }
     }

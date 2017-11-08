@@ -42,14 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer\Customer.cs" />
+    <Compile Include="Customer\PeasantCustomer.cs" />
+    <Compile Include="Item\ItemProduction.cs" />
     <Compile Include="Item\BasicItem.cs" />
     <Compile Include="Item\IItem.cs" />
     <Compile Include="Item\ItemCreator.cs" />
     <Compile Include="Item\ItemDecorator.cs" />
     <Compile Include="Item\MagicDecorator.cs" />
-    <Compile Include="PersonFactory\PersonFactory.cs" />
+    <Compile Include="Customer\CustomerFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Customer\WizardCustomer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

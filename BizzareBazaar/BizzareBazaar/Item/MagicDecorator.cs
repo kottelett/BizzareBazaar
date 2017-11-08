@@ -10,6 +10,7 @@ namespace BizzareBazaar
     {
         public MagicDecorator(IItem item) : base(item)
         {
+
         }
 
         public override string GetDescription()

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BizzareBazaar
+namespace BizzareBazaar.Customer
 {
-    class PersonFactory
+    class Customer
     {
     }
 }
