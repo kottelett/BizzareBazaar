@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace BizzareBazaar
 {
-	
+
     abstract class Customer
     {
-		List<BasicItem> inventory = new List<BasicItem>();
+        List<IItem> inventory = new List<IItem>();
 
-		protected List<BasicItem> Inventory { get => inventory; set => inventory = value; }
+        protected List<IItem> Inventory { get => inventory; set => inventory = value; }
 
-		public virtual void ShowInventory()
-	    {
-		    Console.WriteLine(Inventory.ToString());
-	    }
+        public virtual void ShowInventory()
+        {
+            Console.WriteLine(inventory.ToString());
+        }
     }
 }

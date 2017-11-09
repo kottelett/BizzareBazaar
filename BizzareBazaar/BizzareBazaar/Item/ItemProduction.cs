@@ -8,7 +8,7 @@ namespace BizzareBazaar
 {
     class ItemProduction
     {
-
+       // List<IItem> inventory;
         public void ProduceItem()
         {
             ItemCreator item = new ItemCreator();
