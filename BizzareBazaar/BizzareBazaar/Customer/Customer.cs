@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BizzareBazaar.Customer
+namespace BizzareBazaar
 {
-    class Customer
+	
+    abstract class Customer
     {
+	    public virtual void ShowInventory()
+	    {
+		    Console.WriteLine("Inventory is empty");
+	    }
     }
 }

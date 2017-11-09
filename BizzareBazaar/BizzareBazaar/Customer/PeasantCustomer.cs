@@ -4,9 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BizzareBazaar.Customer
+namespace BizzareBazaar
 {
-    class PeasantCustomer
+    class PeasantCustomer : Customer
     {
+	    private String[] inventory;
+
+	    public PeasantCustomer()
+	    {
+		    
+	    }
+
+	    public override void ShowInventory()
+	    {
+		    base.ShowInventory();
+	    }
     }
 }
