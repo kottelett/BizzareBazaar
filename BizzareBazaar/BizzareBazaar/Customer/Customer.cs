@@ -9,9 +9,13 @@ namespace BizzareBazaar
 	
     abstract class Customer
     {
-	    public virtual void ShowInventory()
+		List<BasicItem> inventory = new List<BasicItem>();
+
+		protected List<BasicItem> Inventory { get => inventory; set => inventory = value; }
+
+		public virtual void ShowInventory()
 	    {
-		    Console.WriteLine("Inventory is empty");
+		    Console.WriteLine(Inventory.ToString());
 	    }
     }
 }

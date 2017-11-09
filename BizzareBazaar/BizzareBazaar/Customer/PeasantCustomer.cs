@@ -8,7 +8,6 @@ namespace BizzareBazaar
 {
     class PeasantCustomer : Customer
     {
-	    private String[] inventory;
 
 	    public PeasantCustomer()
 	    {
