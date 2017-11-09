@@ -12,3 +12,10 @@ C:\Users\larsd\Documents\BizzareBazaar\BizzareBazaar\BizzareBazaar\obj\Debug\Biz
 C:\Users\larsd\Documents\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\BizzareBazaar.exe.config
 C:\Users\larsd\Documents\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\BizzareBazaar.exe
 C:\Users\larsd\Documents\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\BizzareBazaar.pdb
+C:\Users\larsd\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\BizzareBazaar.exe.config
+C:\Users\larsd\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\BizzareBazaar.exe
+C:\Users\larsd\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\BizzareBazaar.pdb
+C:\Users\larsd\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\obj\Debug\BizzareBazaar.csprojResolveAssemblyReference.cache
+C:\Users\larsd\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\obj\Debug\BizzareBazaar.csproj.CoreCompileInputs.cache
+C:\Users\larsd\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\obj\Debug\BizzareBazaar.exe
+C:\Users\larsd\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\obj\Debug\BizzareBazaar.pdb
