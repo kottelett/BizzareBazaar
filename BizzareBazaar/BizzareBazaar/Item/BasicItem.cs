@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BizzareBazaar
 {
-    public class IItem : IItem
+    public class BasicItem : IItem
     {
         private readonly double _price;
         private readonly string _description;
 
-        public IItem(double price, string description)
+        public BasicItem(double price, string description)
         {
             _price = price;
             _description = description;

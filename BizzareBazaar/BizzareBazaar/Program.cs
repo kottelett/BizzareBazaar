@@ -10,8 +10,9 @@ namespace BizzareBazaar
     {
         public static void Main(string[] args)
         {
-            ItemProduction produce = new ItemProduction();
-            produce.ProduceItem();
+            Booth booth1 = new Booth();
+            booth1.RequestItem();
+            booth1.PrintInventory();
 
 
         }
