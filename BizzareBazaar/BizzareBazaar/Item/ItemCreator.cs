@@ -13,7 +13,7 @@ namespace BizzareBazaar
         public IItem CreateRndItem()
         {
 
-            IItem BasicItem = new BasicItem(10, "BasicItem");
+            IItem BasicItem = new IItem(10, "BasicItem");
 
             Random rnd = new Random();
             int rndNum = rnd.Next(0, 2);

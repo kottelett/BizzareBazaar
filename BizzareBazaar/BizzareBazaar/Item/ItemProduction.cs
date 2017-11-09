@@ -8,7 +8,7 @@ namespace BizzareBazaar
 {
     class ItemProduction
     {
-
+       // List<IItem> inventory;
         public void ProduceItem()
         {
             ItemCreator item = new ItemCreator();
@@ -19,7 +19,7 @@ namespace BizzareBazaar
             for (int i = 0; i < 10; i++)
             {
                 inventory.Add(item.CreateRndItem());
-                System.Threading.Thread.Sleep(500);
+                System.Threading.Thread.Sleep(1000);
             }
 
             Console.WriteLine("Number of items: " + inventory.Count + "\n");
