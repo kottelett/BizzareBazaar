@@ -24,5 +24,10 @@ namespace BizzareBazaar
         {
             return _originalItem.GetDescription();
         }
+
+        public virtual int GetItemNumber()
+        {
+            return _originalItem.GetItemNumber();
+        }
     }
 }
