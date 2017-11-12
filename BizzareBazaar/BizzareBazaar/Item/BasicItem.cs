@@ -10,7 +10,7 @@ namespace BizzareBazaar
     {
         private readonly double _price;
         private readonly string _description;
-        private readonly int _ItemNum;
+        private readonly int _ItemNum;     
 
         public BasicItem(double price, string description, int ItemNum)
         {
