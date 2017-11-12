@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BizzareBazaar
+namespace BizzareBazaar.Customer
 {
-    class PeasantCustomer : Customers
+    class WarriorCustomer : Customers
     {
         public Double Strength { get; private set; }
         public Double Intelect { get; private set; }
         public Double Agility { get; private set; }
 
-        public PeasantCustomer(double strength, double intelect, double agility)
+        public WarriorCustomer(double strength, double intelect, double agility)
         {
             Strength = strength;
             Intelect = intelect;
@@ -23,10 +23,5 @@ namespace BizzareBazaar
         {
             return null;
         }
-
-        /*public override void ShowInventory()
-	    {
-		    base.ShowInventory();
-	    }*/
     }
 }

@@ -19,21 +19,18 @@ namespace BizzareBazaar
 		    
 	    }
 
-		public static Customer CreateCustomer(CustomerClass customerClass, String[] inventory)
+		public static Customers CreateCustomer(CustomerClass customerClass, float[] stats)
 	    {
-		    Customer customer = null;
+		    Customers customer = null;
 		    switch (customerClass)
 		    {
 				case CustomerClass.Peasant:
-					customer = new PeasantCustomer();
-					break;
-				case CustomerClass.Warrior:
+					customer = new PeasantCustomer(stats[0], stats[1], stats[2]);
 					break;
 				case CustomerClass.Wizard:
+                    customer = new WizardCustomer(stats[0], stats[1], stats[2]);
 					break;
 		    }
-
-
 
 		    return customer;
 
