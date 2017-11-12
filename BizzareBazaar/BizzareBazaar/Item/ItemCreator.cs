@@ -10,10 +10,8 @@ namespace BizzareBazaar
     {
         string[] decorators = { "BasicItem", "Magic" };
 
-        public IItem CreateRndItem()
         {
 
-            IItem BasicItem = new IItem(10, "BasicItem");
 
             Random rnd = new Random();
             int rndNum = rnd.Next(0, 2);

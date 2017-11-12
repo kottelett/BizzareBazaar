@@ -10,11 +10,18 @@ namespace BizzareBazaar
     {
 
         public static List<IItem> storage { get; set; } = new List<IItem>();
+<<<<<<< HEAD
         ItemCreator item = new ItemCreator();
 
         public ItemProduction()
         {
+=======
+>>>>>>> SondreBranch
 
+        public ItemProduction()
+        {
+
+            ItemCreator item = new ItemCreator();
 
             
             for (int i = 0; i < 10; i++)
@@ -25,8 +32,13 @@ namespace BizzareBazaar
 
             Console.WriteLine("Number of items: " + storage.Count + "\n");
         }
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> SondreBranch
         public void PrintStorage()
         {
             for (int i = 0; i < storage.Count; i++)

@@ -10,8 +10,6 @@ namespace BizzareBazaar
     {
         public static void Main(string[] args)
         {
-            ItemProduction produce = new ItemProduction();
-            produce.ProduceItem();
 
 
         }

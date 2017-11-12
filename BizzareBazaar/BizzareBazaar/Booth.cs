@@ -39,7 +39,11 @@ namespace BizzareBazaar
         }
 
 
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> SondreBranch
 
         public void PrintItem(IItem item)
         {
