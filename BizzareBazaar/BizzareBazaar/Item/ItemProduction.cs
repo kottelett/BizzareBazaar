@@ -16,7 +16,7 @@ namespace BizzareBazaar
 
             ItemCreator item = new ItemCreator();
 
-
+            
             for (int i = 0; i < 10; i++)
             {
                 storage.Add(item.CreateRndItem(i));
