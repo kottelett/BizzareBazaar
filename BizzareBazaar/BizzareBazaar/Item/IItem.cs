@@ -11,5 +11,7 @@ namespace BizzareBazaar
         double GetPrice();
 
         string GetDescription();
+
+        int GetItemNumber();
     }
 }
