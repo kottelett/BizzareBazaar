@@ -8,37 +8,40 @@ namespace BizzareBazaar
 {
     class ItemProduction
     {
-       List<IItem> inventory;
 
+        public static List<IItem> storage { get; set; } = new List<IItem>();
+        ItemCreator item = new ItemCreator();
 
-        public void ProduceItem()
+        public ItemProduction()
         {
-            ItemCreator item = new ItemCreator();
-
-             inventory = new List<IItem>();
 
 
+            
             for (int i = 0; i < 10; i++)
             {
-                inventory.Add(item.CreateRndItem());
-                System.Threading.Thread.Sleep(1000);
+                storage.Add(item.CreateRndItem(i));
+                System.Threading.Thread.Sleep(100);
             }
 
-            Console.WriteLine("Number of items: " + inventory.Count + "\n");
-
-            for (int i = 0; i < inventory.Count; i++)
-            {
-                PrintItemInformation(inventory[i]);
-
-            }
-            Console.ReadKey();
+            Console.WriteLine("Number of items: " + storage.Count + "\n");
         }
 
-        public static void PrintItemInformation(IItem item)
+
+        public void PrintStorage()
         {
-            Console.WriteLine(item.GetDescription() + " | Price: " + item.GetPrice());
+            for (int i = 0; i < storage.Count; i++)
+            {
+                PrintItem(storage[i]);
+            }
+        }
+
+        public void PrintItem(IItem item)
+        {
+            Console.WriteLine("item #" + item.GetItemNumber() + " " + 
+                item.GetDescription() + " | Price: " + item.GetPrice());
 
         }
-    }
-}
 
+    }
+
+}
