@@ -9,7 +9,7 @@ namespace BizzareBazaar
     class ItemProduction
     {
 
-        private static List<IItem> storage { get; set; } = new List<IItem>();
+        public static List<IItem> storage { get; set; } = new List<IItem>();
         ItemCreator item = new ItemCreator();
 
 
