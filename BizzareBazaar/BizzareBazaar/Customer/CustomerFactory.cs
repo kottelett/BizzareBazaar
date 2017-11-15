@@ -19,9 +19,9 @@ namespace BizzareBazaar
 		{
 		}
 
-		public static Customers CreateCustomer(CustomerClass customerClass, float[] stats)
+		public static Customer CustomerCreateCustomer(CustomerClass customerClass, float[] stats)
 		{
-			Customers customer = null;
+			Customer customer = null;
 			switch (customerClass)
 			{
 				case CustomerClass.Peasant:

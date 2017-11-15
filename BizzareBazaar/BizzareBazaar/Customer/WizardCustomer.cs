@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BizzareBazaar
 {
-	class WizardCustomer : Customers
+	class WizardCustomer : Customer
 	{
 		public WizardCustomer(double strength, double intelect, double agility)
 		{

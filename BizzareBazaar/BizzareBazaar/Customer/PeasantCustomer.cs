@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BizzareBazaar
 {
-    class PeasantCustomer : Customers
+    class PeasantCustomer : Customer
     {
         public Double Strength { get; private set; }
         public Double Intelect { get; private set; }
@@ -19,7 +19,7 @@ namespace BizzareBazaar
             Agility = agility;
         }
 
-        public override string GetClass()
+        protected override string GetClass()
         {
             return null;
         }
