@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BizzareBazaar
+namespace BizzareBazaar.Customer
 {
-	class WizardCustomer : Customers
+	class WarriorCustomer : Customers
 	{
-		public WizardCustomer(double strength, double intelect, double agility)
+		public WarriorCustomer(double strength, double intelect, double agility)
 		{
 			//Strength = strength;
 			//Intelect = intelect;
@@ -18,12 +18,6 @@ namespace BizzareBazaar
 		protected override string GetClass()
 		{
 			return null;
-		}
-
-		public override void PrintInformation()
-		{
-			StringBuilder builder = new StringBuilder();
-			builder.Append("Wizard Stats\n");
 		}
 	}
 }

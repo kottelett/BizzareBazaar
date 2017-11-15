@@ -6,17 +6,27 @@ using System.Threading.Tasks;
 
 namespace BizzareBazaar
 {
-    class PeasantCustomer : Customer
+    class PeasantCustomer : Customers
     {
+        public Double Strength { get; private set; }
+        public Double Intelect { get; private set; }
+        public Double Agility { get; private set; }
 
-	    public PeasantCustomer()
-	    {
-		    
-	    }
+        public PeasantCustomer(double strength, double intelect, double agility)
+        {
+            Strength = strength;
+            Intelect = intelect;
+            Agility = agility;
+        }
 
-	    public override void ShowInventory()
+        public override string GetClass()
+        {
+            return null;
+        }
+
+        /*public override void ShowInventory()
 	    {
 		    base.ShowInventory();
-	    }
+	    }*/
     }
 }
