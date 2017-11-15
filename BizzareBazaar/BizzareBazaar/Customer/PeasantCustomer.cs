@@ -13,10 +13,11 @@ namespace BizzareBazaar
 	    {
 		    
 	    }
-
+		/*
 	    public override void ShowInventory()
 	    {
 		    base.ShowInventory();
 	    }
+		*/
     }
 }
