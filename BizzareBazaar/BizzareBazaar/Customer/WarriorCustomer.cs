@@ -8,16 +8,25 @@ namespace BizzareBazaar
 {
 	class WarriorCustomer : Customer
 	{
+		/*
 		public WarriorCustomer(double strength, double intelect, double agility)
 		{
 			//Strength = strength;
 			//Intelect = intelect;
 			//Agility = agility;
 		}
+		*/
 
-		protected override string GetClass()
+		public WarriorCustomer(string customerClass)
 		{
-			return null;
+			Class = customerClass;
 		}
+
+		public override void PrintInformation()
+		{
+			PrintInformation(GetClass());
+		}
+
+
 	}
 }

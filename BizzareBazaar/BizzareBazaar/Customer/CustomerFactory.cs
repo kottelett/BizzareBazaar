@@ -18,7 +18,7 @@ namespace BizzareBazaar
 		private CustomerFactory()
 		{
 		}
-
+		/*
 		public static Customer CustomerCreateCustomer(CustomerClass customerClass, float[] stats)
 		{
 			Customer customer = null;
@@ -33,6 +33,24 @@ namespace BizzareBazaar
 			}
 
 			return customer;
+		}*/
+		public static Customer CreateCustomer(CustomerClass customerClass, string customerName)
+		{
+			Customer customer = null;
+			switch (customerClass)
+			{
+				case CustomerClass.Peasant:
+					customer = new PeasantCustomer(customerName);
+					break;
+				case CustomerClass.Warrior:
+					customer = new WarriorCustomer(customerName);
+					break;
+				case CustomerClass.Wizard:
+					customer = new WizardCustomer(customerName);
+					break;
+			}
+			return customer;
+
 		}
 	}
 }

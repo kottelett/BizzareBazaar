@@ -24,7 +24,7 @@ namespace BizzareBazaar
 
 		public virtual void PrintInformation()
 		{
-			Console.WriteLine("Overrided text");
+			Console.WriteLine("Unidendified Class");
 		}
 
 		public virtual void ShowInventory()
@@ -35,7 +35,7 @@ namespace BizzareBazaar
 		public void PrintInformation(string customerClass)
 		{
 			StringBuilder builder = new StringBuilder();
-			builder.Append("Stats"+ customerClass + "\n");
+			builder.Append("Class: "+ GetClass());
 
 			Console.WriteLine(builder);
 			//builder.AppendFormat(" - {0}: {1}", "Strength", Strength);

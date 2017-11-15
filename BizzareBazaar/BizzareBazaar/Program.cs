@@ -10,6 +10,7 @@ namespace BizzareBazaar
     {
         public static void Main(string[] args)
         {
+			
             ItemProduction produce =  new ItemProduction();
             Booth booth = new Booth();
 
@@ -31,9 +32,20 @@ namespace BizzareBazaar
 
             Console.WriteLine("INVENTORY AFTER FETCH: \n");
             booth.PrintInventory();
-            Console.ReadKey();
             
-        }
+            
+
+	        Customer peasantCustomer = CustomerFactory.CreateCustomer(CustomerClass.Peasant, "Peasant");
+	        Customer warriCustomer = CustomerFactory.CreateCustomer(CustomerClass.Warrior, "Big strong Warrior");
+	        Customer wizardCustomer= CustomerFactory.CreateCustomer(CustomerClass.Wizard, "Scary Wizard");
+
+			peasantCustomer.PrintInformation();
+			warriCustomer.PrintInformation();
+			wizardCustomer.PrintInformation();
+
+			// Hack to stop program from terminating
+	        Console.ReadKey();
+		}
 
     }
 }

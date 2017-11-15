@@ -8,22 +8,24 @@ namespace BizzareBazaar
 {
 	class WizardCustomer : Customer
 	{
+		/*
 		public WizardCustomer(double strength, double intelect, double agility)
 		{
 			//Strength = strength;
 			//Intelect = intelect;
 			//Agility = agility;
 		}
+		*/
 
-		protected override string GetClass()
+		public WizardCustomer(string customerClass)
 		{
-			return null;
+			Class = customerClass;
 		}
+
 
 		public override void PrintInformation()
 		{
-			StringBuilder builder = new StringBuilder();
-			builder.Append("Wizard Stats\n");
+			PrintInformation(GetClass());
 		}
 	}
 }
