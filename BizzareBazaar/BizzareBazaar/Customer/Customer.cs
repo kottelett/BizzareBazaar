@@ -8,8 +8,8 @@ namespace BizzareBazaar
 {
 	abstract class Customer
 	{
-		protected List<BasicItem> Inventory { get; set; } =
-			new List<BasicItem>();
+		protected List<IItem> Inventory { get; set; } =
+			new List<IItem>();
 
 		protected string Class { get; set; }
 		//protected double Strength;
@@ -21,23 +21,39 @@ namespace BizzareBazaar
 		{
 			return Class;
 		}
-
+		
 		public virtual void PrintInformation()
 		{
 			Console.WriteLine("Unidendified Class");
 		}
+		
 
 		public virtual void ShowInventory()
 		{
-			Console.WriteLine(Inventory.ToString());
+			foreach (var item in Inventory)
+			{
+				Console.WriteLine(item.GetDescription());
+			}
+		}
+
+		public void AddOneItemToInventory(BasicItem item)
+		{
+			Inventory.Add(item);
+		}
+
+		public void AddItemsToInventory(List<IItem> itemList)
+		{
+			Inventory.AddRange(itemList);
 		}
 
 		public void PrintInformation(string customerClass)
 		{
 			StringBuilder builder = new StringBuilder();
-			builder.Append("Class: "+ GetClass());
+			builder.Append("Class: "+ GetClass() + "\n");
+			
 
 			Console.WriteLine(builder);
+			ShowInventory();
 			//builder.AppendFormat(" - {0}: {1}", "Strength", Strength);
 			//builder.AppendFormat(" - {0}: {1}", "Intelect", Intelect);
 			//builder.AppendFormat(" - {0}; {1}", "Agility", Agility);

@@ -38,10 +38,15 @@ namespace BizzareBazaar
 	        Customer peasantCustomer = CustomerFactory.CreateCustomer(CustomerClass.Peasant, "Peasant");
 	        Customer warriCustomer = CustomerFactory.CreateCustomer(CustomerClass.Warrior, "Big strong Warrior");
 	        Customer wizardCustomer= CustomerFactory.CreateCustomer(CustomerClass.Wizard, "Scary Wizard");
+			ItemProduction prod = new ItemProduction();
 
-			peasantCustomer.PrintInformation();
+			peasantCustomer.AddItemsToInventory(prod.GetInventory());
+			Console.WriteLine("Peasant inventory:\n");
+			peasantCustomer.ShowInventory();
+
 			warriCustomer.PrintInformation();
 			wizardCustomer.PrintInformation();
+
 
 			// Hack to stop program from terminating
 	        Console.ReadKey();
