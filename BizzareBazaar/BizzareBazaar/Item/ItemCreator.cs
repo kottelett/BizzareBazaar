@@ -32,9 +32,6 @@ namespace BizzareBazaar
                         case "Magic":
                             BasicItem = new MagicDecorator(BasicItem);
                             break;
-
-
-
                     }
 
 
@@ -42,7 +39,6 @@ namespace BizzareBazaar
 
 
             }
-            Console.WriteLine(rndNum);
 
             return BasicItem;
 
