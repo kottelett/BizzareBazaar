@@ -37,9 +37,6 @@ namespace BizzareBazaar
             }
         }
 
-
-
-
         public static void PrintItem(IItem item)
         {
             Console.WriteLine(item.GetDescription() + " | Price: " + item.GetPrice());

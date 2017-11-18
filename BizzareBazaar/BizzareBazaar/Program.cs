@@ -11,52 +11,23 @@ namespace BizzareBazaar
     {
         public static void Main(string[] args)
         {
+			//Customer peasantCustomer = CustomerFactory.CreateCustomer(CustomerClass.Peasant, "Peasant");
+	  //      Customer warriCustomer = CustomerFactory.CreateCustomer(CustomerClass.Warrior, "Big strong Warrior");
+	  //      Customer wizardCustomer = CustomerFactory.CreateCustomer(CustomerClass.Wizard, "Scary Wizard");
+	  //      ItemProduction prod = new ItemProduction();
 
-			
-            ItemProduction produce =  new ItemProduction();
-            Booth booth = new Booth();
+	  //      peasantCustomer.AddItemsToInventory(prod.GetInventory());
+	  //      Console.WriteLine("Peasant inventory:\n");
+	  //      peasantCustomer.ShowInventory();
 
-
-            /*  Console.WriteLine("STORAGE BEFORE FETCH: \n");
-              produce.PrintStorage();
-
-
-              Console.WriteLine("INVENTORY BEFORE FETCH: \n");
-              booth.PrintInventory();
-
+	  //      warriCustomer.PrintInformation();
+	  //      wizardCustomer.PrintInformation();
 
 
-              Console.WriteLine("___________________________________________________________________________");
-              Console.WriteLine("STORAGE AFTER FETCH: \n");
-              produce.PrintStorage();
+	  //      ItemProduction.SetTimerAndProduceItems();
+	  //      Booth.SetTimerAndFetchItems();
 
-
-            Console.WriteLine("INVENTORY AFTER FETCH: \n");
-            booth.PrintInventory();
-
-              Console.WriteLine("INVENTORY AFTER FETCH: \n");
-              booth.PrintInventory();
-
-              */
-            // Booth begins to fetch items from storage
-            
-
-
-			Customer peasantCustomer = CustomerFactory.CreateCustomer(CustomerClass.Peasant, "Peasant");
-	        Customer warriCustomer = CustomerFactory.CreateCustomer(CustomerClass.Warrior, "Big strong Warrior");
-	        Customer wizardCustomer = CustomerFactory.CreateCustomer(CustomerClass.Wizard, "Scary Wizard");
-	        ItemProduction prod = new ItemProduction();
-
-	        peasantCustomer.AddItemsToInventory(prod.GetInventory());
-	        Console.WriteLine("Peasant inventory:\n");
-	        peasantCustomer.ShowInventory();
-
-	        warriCustomer.PrintInformation();
-	        wizardCustomer.PrintInformation();
-
-
-	        ItemProduction.SetTimerAndProduceItems();
-	        Booth.SetTimerAndFetchItems();
+	        Controller controller = new Controller();
 
 			// Hack to stop program from terminating
 			Console.ReadKey();
