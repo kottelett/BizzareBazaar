@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Booth.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\PeasantCustomer.cs" />
@@ -57,7 +56,6 @@
     <Compile Include="Item\ItemDecorator.cs" />
     <Compile Include="Item\MagicDecorator.cs" />
     <Compile Include="Models\CustomerFactory.cs" />
-    <Compile Include="Model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\WizardCustomer.cs" />
