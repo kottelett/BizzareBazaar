@@ -29,9 +29,10 @@ namespace BizzareBazaar
 			}
 		}
 
-		public void ItemBought(IItem item, string customerName)
+		public void ItemBought(IItem item, Person customerName)
 		{
-			Console.WriteLine(customerName + " bought " + item.GetDescription());
+			customerName.PrintInformation();
+			Console.WriteLine(" bought " + item.GetDescription());
 		}
 
 		public void ItemForSale(IItem item, string salesmanName)
@@ -39,6 +40,9 @@ namespace BizzareBazaar
 			Console.WriteLine(item.GetDescription() + " can now be bought from " + salesmanName);
 		}
 
-		
+		public void PrintDescription(Person person)
+		{
+			person.PrintInformation();
+		}
 	}
 }

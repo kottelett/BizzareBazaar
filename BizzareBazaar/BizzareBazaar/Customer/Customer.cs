@@ -45,6 +45,10 @@ namespace BizzareBazaar
 			//}
 		}
 
-		public abstract void PrintInformation();
+
+		public override void PrintInformation()
+		{
+			Console.Write("CustomerClass.PrintInformation()");
+		}
 	}
 }

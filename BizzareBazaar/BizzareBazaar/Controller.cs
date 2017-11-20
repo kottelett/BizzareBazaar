@@ -42,6 +42,22 @@ namespace BizzareBazaar
 			_customersOnBazaar = createPersons(5, _custormerModel);
 		}
 
+		public void MakeTransaction()
+		{
+			//Tråd?
+
+			if (_salesmanModel.GetFirstItem() != null)
+			{
+				IItem firstItem = _salesmanModel.GetFirstItem();
+				_custormerModel.AddOneItemToInventory(firstItem);
+				_salesmanModel.RemoveFirstItemFromInventory();
+
+				_view.ItemBought(firstItem, _custormerModel);
+
+			}
+
+		}
+
 		private List<Person> createPersons (int numberOfPersons, Person param)
 		{
 			List<Person> list = new List<Person>();

@@ -26,15 +26,28 @@ namespace BizzareBazaar
 
 	  //      ItemProduction.SetTimerAndProduceItems();
 	  //      Booth.SetTimerAndFetchItems();
-	  
+
+	        Customer peasant = CustomerFactory.CreateCustomer(CustomerClass.Peasant, "Peasant1");
+			Salesman salesman = new Salesman("Salesman1", 10);
 
 			Console.WriteLine("Start shopping:");
-			// Lag liste med Selgere her
-			// Lag kjøpere her
+			
 	        Controller controller = new Controller();
 			controller.InitiateShopping();
+			//controller.MakeTransaction(peasant, salesman);
+
+	        int it = 10;
+	        while (it > 0)
+	        {
+				controller.MakeTransaction();
+		        Console.ReadLine();
+				Console.WriteLine(it);
+		        it--;
+	        }
 
 			
+
+			Console.WriteLine("End shopping");
 
 			// Hack to stop program from terminating
 			Console.ReadKey();

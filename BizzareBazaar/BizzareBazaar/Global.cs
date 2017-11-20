@@ -38,7 +38,7 @@ namespace BizzareBazaar
 		public static void OnTimedEvent(Object source, ElapsedEventArgs e)
 		{
 			// fix magic number
-			if (ItemsForSale.Count < 5)
+			if (ItemsForSale.Count != 0)
 			{
 				FetchFirstItem();
 			}

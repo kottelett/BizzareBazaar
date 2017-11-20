@@ -37,6 +37,12 @@ namespace BizzareBazaar
 			GetInventory().AddRange(itemList);
 		}
 
+		public void RemoveFirstItemFromInventory()
+		{
+			GetInventory().RemoveAt(0);
+		}
+
+		public abstract void PrintInformation();
 
 	}
 }

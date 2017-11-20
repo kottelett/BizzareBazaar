@@ -33,6 +33,11 @@ namespace BizzareBazaar
 				Global.ItemsForSale.Clear();
 			}
 		}
+
+		public override void PrintInformation()
+		{
+			Console.Write("The salesman " + _name);
+		}
 	}
 
 
