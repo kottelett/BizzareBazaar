@@ -10,9 +10,9 @@ namespace BizzareBazaar
 {
 	class Controller
 	{
-		private Customer _custormerModel;
-		private Salesman _salesmanModel;
-		private View _view;
+		private readonly Customer _custormerModel;
+		private readonly Salesman _salesmanModel;
+		private readonly View _view;
 		//private List<IItem> _inventoryItems;
 		private List<Person> _salesmenOnBazaar;
 

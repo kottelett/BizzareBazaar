@@ -10,19 +10,15 @@ namespace BizzareBazaar
 {
     class ItemProduction
     {
-
-        public static List<IItem> Storage
-        {
-	        get { return new List<IItem>(); }
-	        set { throw new NotImplementedException(); }
-        }
-
-	    ItemCreator _item = new ItemCreator();
+	    private readonly ItemCreator _item = new ItemCreator();
         private static Timer _timer;
+	    public static List<IItem> Storage { get; set; } = new List<IItem>();
 
-        public ItemProduction()
+
+		public ItemProduction()
         {
 			Storage.Add(_item.CreateRndItem(Global.GlobalItemNumber));
+	        Global.GlobalItemNumber++;
 			SetTimerAndProduceItems();
 	        /*  for (int i = 0; i < 10; i++)
               {
@@ -69,7 +65,7 @@ namespace BizzareBazaar
             Storage.Add(item.CreateRndItem(i));
            // i++;
 
-            Console.WriteLine("\n");
+            Console.WriteLine("OnTimedEvent ItemProduction\n");
 
 
         }

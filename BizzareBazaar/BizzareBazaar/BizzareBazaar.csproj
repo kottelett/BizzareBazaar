@@ -44,11 +44,11 @@
   <ItemGroup>
     <Compile Include="Booth.cs" />
     <Compile Include="Controller.cs" />
-    <Compile Include="Customer\Customer.cs" />
-    <Compile Include="Customer\PeasantCustomer.cs" />
-    <Compile Include="Customer\Person.cs" />
-    <Compile Include="Customer\Salesman.cs" />
-    <Compile Include="Customer\WarriorCustomer.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\PeasantCustomer.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Salesman.cs" />
+    <Compile Include="Models\WarriorCustomer.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Item\ItemProduction.cs" />
     <Compile Include="Item\BasicItem.cs" />
@@ -56,11 +56,11 @@
     <Compile Include="Item\ItemCreator.cs" />
     <Compile Include="Item\ItemDecorator.cs" />
     <Compile Include="Item\MagicDecorator.cs" />
-    <Compile Include="Customer\CustomerFactory.cs" />
+    <Compile Include="Models\CustomerFactory.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Customer\WizardCustomer.cs" />
+    <Compile Include="Models\WizardCustomer.cs" />
     <Compile Include="View.cs" />
   </ItemGroup>
   <ItemGroup>
