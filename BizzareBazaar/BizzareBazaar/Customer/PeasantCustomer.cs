@@ -17,20 +17,24 @@ namespace BizzareBazaar
             Agility = agility;
         }
 		*/
-	    public PeasantCustomer(string customerClass)
+	    public PeasantCustomer(string customerCustomerGroup)
 	    {
-		    Class = customerClass;
-	    }
-        
-
-	    public override void PrintInformation()
-	    {
-			PrintInformation(GetClass());
+		    CustomerGroup = customerCustomerGroup;
 	    }
 
-	    /*public override void ShowInventory()
+
+		//  public override void PrintInformation()
+		//  {
+		//PrintInformation(GetCustomerGroup());
+		//  }
+
+		/*public override void ShowInventory()
 	    {
 		    ShowInventory();
 	    }*/
+	    public override void PrintInformation()
+	    {
+		    throw new NotImplementedException();
+	    }
     }
 }

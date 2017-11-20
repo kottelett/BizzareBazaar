@@ -43,8 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Booth.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="Customer\Customer.cs" />
     <Compile Include="Customer\PeasantCustomer.cs" />
+    <Compile Include="Customer\Person.cs" />
+    <Compile Include="Customer\Salesman.cs" />
+    <Compile Include="Customer\WarriorCustomer.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="Item\ItemProduction.cs" />
     <Compile Include="Item\BasicItem.cs" />
     <Compile Include="Item\IItem.cs" />
@@ -52,12 +57,22 @@
     <Compile Include="Item\ItemDecorator.cs" />
     <Compile Include="Item\MagicDecorator.cs" />
     <Compile Include="Customer\CustomerFactory.cs" />
+    <Compile Include="Model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Customer\WizardCustomer.cs" />
+    <Compile Include="View.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\BizzareBazaar.exe.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\BizzareBazaar.exe" />
+    <Content Include="bin\Debug\BizzareBazaar.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

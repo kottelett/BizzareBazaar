@@ -15,15 +15,28 @@ namespace BizzareBazaar
 
 		public List<IItem> ItemList { get; set; }
 
-		private void GetList(List<IItem> list)
-		{
-			
-		}
-
-		public static void PrintItem(IItem item)
+		public void PrintItem(IItem item)
 		{
 			Console.WriteLine(item.GetDescription() + " | Price: " + item.GetPrice());
 
+		}
+
+		public void ShowInventory(List<IItem> items)
+		{
+			foreach (var item in items)
+			{
+				Console.WriteLine(item.GetDescription());
+			}
+		}
+
+		public void ItemBought(IItem item, string customerName)
+		{
+			Console.WriteLine(customerName + " bought " + item.GetDescription());
+		}
+
+		public void ItemForSale(IItem item, string salesmanName)
+		{
+			Console.WriteLine(item.GetDescription() + " can now be bought from " + salesmanName);
 		}
 
 		

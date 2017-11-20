@@ -6,61 +6,45 @@ using System.Threading.Tasks;
 
 namespace BizzareBazaar
 {
-	abstract class Customer
+	abstract class Customer : Person
 	{
-		public List<IItem> Inventory { get; set; } =
-			new List<IItem>();
 
-		protected string Class { get; set; }
+		protected string CustomerGroup { get; set; }
 		//protected double Strength;
 		//protected double Intelect;
 		//protected double Agility;
 
 
-		protected virtual string GetClass()
+		protected string GetCustomerGroup()
 		{
-			return Class;
+			return CustomerGroup;
 		}
 
-		//public virtual void PrintInformation()
-		//{
-		//	Console.WriteLine("Unidendified Class");
-		//}
 
-
-		//public virtual void ShowInventory()
-		//{
-		//	foreach (var item in Inventory)
-		//	{
-		//		Console.WriteLine(item.GetDescription());
-		//	}
-		//}
-
-		public IItem GetFirstItem()
+		public virtual void ShowInventory()
 		{
-			return Inventory.FirstOrDefault();
-		}
-		public void AddOneItemToInventory(IItem item)
-		{
-			Inventory.Add(item);
+			foreach (var item in Inventory)
+			{
+				Console.WriteLine(item.GetDescription());
+			}
 		}
 
-		public void AddItemsToInventory(List<IItem> itemList)
+
+
+		public virtual void PrintInformation(string customerClass)
 		{
-			Inventory.AddRange(itemList);
+			StringBuilder builder = new StringBuilder();
+			builder.Append("CustomerGroup: " + GetCustomerGroup() + "\n");
+
+
+			//	Console.WriteLine(builder);
+			//	ShowInventory();
+			//	//builder.AppendFormat(" - {0}: {1}", "Strength", Strength);
+			//	//builder.AppendFormat(" - {0}: {1}", "Intelect", Intelect);
+			//	//builder.AppendFormat(" - {0}; {1}", "Agility", Agility);
+			//}
 		}
 
-		//public void PrintInformation(string customerClass)
-		//{
-		//	StringBuilder builder = new StringBuilder();
-		//	builder.Append("Class: "+ GetClass() + "\n");
-
-
-		//	Console.WriteLine(builder);
-		//	ShowInventory();
-		//	//builder.AppendFormat(" - {0}: {1}", "Strength", Strength);
-		//	//builder.AppendFormat(" - {0}: {1}", "Intelect", Intelect);
-		//	//builder.AppendFormat(" - {0}; {1}", "Agility", Agility);
-		//}
+		public abstract void PrintInformation();
 	}
 }

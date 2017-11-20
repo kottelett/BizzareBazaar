@@ -17,17 +17,17 @@ namespace BizzareBazaar
 
 
         }
-        public static IItem FetchFirstItem()
-        {
-            BoothInventory.Add(ItemProduction.Storage.First<IItem>());
+		public static IItem FetchFirstItem()
+		{
+			BoothInventory.Add(ItemProduction.Storage.First<IItem>());
 
-            ItemProduction.Storage.Remove(ItemProduction.Storage.First<IItem>());
+			ItemProduction.Storage.Remove(ItemProduction.Storage.First<IItem>());
 
-            return BoothInventory.First<IItem>();
+			return BoothInventory.First<IItem>();
 
-        }
+		}
 
-        public static void PrintInventory()
+		public static void PrintInventory()
         {
             for (int i = 0; i < BoothInventory.Count; i++)
             {
@@ -43,30 +43,31 @@ namespace BizzareBazaar
 
         }
 
-        public static void SetTimerAndFetchItems()
-        {
-	        _timer = new Timer {Interval = 2000};
-	        _timer.Elapsed += OnTimedEvent;
-            _timer.AutoReset = true;
-            _timer.Enabled = true;
+		public static void SetTimerAndFetchItems()
+		{
+			_timer = new Timer { Interval = 2000 };
+			_timer.Elapsed += OnTimedEvent;
+			_timer.AutoReset = true;
+			_timer.Enabled = true;
 
-        }
+		}
 
-        public static void OnTimedEvent(Object source, ElapsedEventArgs e)
-        {
-            if (BoothInventory.Count < 5)
-            {
-                FetchFirstItem();
-                PrintInventory();
-                Console.WriteLine("\n");
-            }
-            else {
-                Console.WriteLine("Booth1`s inventory is full");
-            }
-           //  Console.WriteLine("Elapsed event at {0}", e.SignalTime);
-        }
+		public static void OnTimedEvent(Object source, ElapsedEventArgs e)
+		{
+			if (BoothInventory.Count < 5)
+			{
+				FetchFirstItem();
+				//PrintInventory();
+				//Console.WriteLine("\n");
+			}
+			else
+			{
+				//Console.WriteLine("Booth1`s inventory is full");
+			}
+			//  Console.WriteLine("Elapsed event at {0}", e.SignalTime);
+		}
 
 
 
-    }
+	}
 }

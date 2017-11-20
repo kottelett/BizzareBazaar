@@ -11,22 +11,26 @@ namespace BizzareBazaar
     class ItemProduction
     {
 
-        public static List<IItem> Storage { get; set; } = new List<IItem>();
-        ItemCreator _item = new ItemCreator();
+        public static List<IItem> Storage
+        {
+	        get { return new List<IItem>(); }
+	        set { throw new NotImplementedException(); }
+        }
+
+	    ItemCreator _item = new ItemCreator();
         private static Timer _timer;
 
         public ItemProduction()
         {
-
-            // ItemCreator item = new ItemCreator();
-
-			/*  for (int i = 0; i < 10; i++)
+			Storage.Add(_item.CreateRndItem(Global.GlobalItemNumber));
+			SetTimerAndProduceItems();
+	        /*  for (int i = 0; i < 10; i++)
               {
                   storage.Add(item.CreateRndItem(i));
                   System.Threading.Thread.Sleep(100);
               } */
 
-           // Console.WriteLine("Number of items: " + storage.Count + "\n");
+	        // Console.WriteLine("Number of items: " + storage.Count + "\n");
         }
 
         public void PrintStorage()
@@ -49,7 +53,7 @@ namespace BizzareBazaar
 
         }
         // Triggers OnTimedEvent every 1000 ms
-        public static void SetTimerAndProduceItems()
+        private void SetTimerAndProduceItems()
         {
 	        _timer = new Timer {Interval = 1000};
 	        _timer.Elapsed += OnTimedEvent;

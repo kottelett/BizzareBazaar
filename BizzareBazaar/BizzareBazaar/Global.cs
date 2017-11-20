@@ -9,9 +9,11 @@ namespace BizzareBazaar
 {
 	static class Global
 	{
+		public const int BOOTHDAILYQUOTA = 10;
 		private static Timer _timer;
 		public static Timer Timer { get; set; }
-
+		public static List<IItem> ItemsForSale = new List<IItem>();
+		public static int GlobalItemNumber = 0;
 	
 		public static void SetTimerAndFetchItems()
 		{
@@ -22,20 +24,32 @@ namespace BizzareBazaar
 
 		}
 
+		public static IItem FetchFirstItem()
+		{
+
+			ItemsForSale.Add(ItemProduction.Storage.First<IItem>());
+			IItem item = ItemProduction.Storage.First<IItem>();
+			ItemProduction.Storage.Remove(ItemProduction.Storage.First<IItem>());
+
+			return item;
+
+		}
+
 		public static void OnTimedEvent(Object source, ElapsedEventArgs e)
 		{
-			//if (BoothInventory.Count < 5)
-			//{
-			//	FetchFirstItem();
-			//	PrintInventory();
-			//	Console.WriteLine("\n");
-			//}
+			// fix magic number
+			if (ItemsForSale.Count < 5)
+			{
+				FetchFirstItem();
+			}
 			//else
 			//{
 			//	Console.WriteLine("Booth1`s inventory is full");
 			//}
 			////  Console.WriteLine("Elapsed event at {0}", e.SignalTime);
 		}
+
+		
 	}
 
 }

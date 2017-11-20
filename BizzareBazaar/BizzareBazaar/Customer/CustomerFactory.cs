@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -52,5 +53,23 @@ namespace BizzareBazaar
 			return customer;
 
 		}
+
+		//public static Customer CreateRandomCustomer(string customerName)
+		//{
+		//	return CreateCustomer(RandomCustomerClass, customerName);
+			
+		//}
+
+		//public static CustomerClass RandomCustomerClass
+		//{
+		//	get
+		//	{
+		//		var random = new Random();try
+		//		var values = Enum.GetValues(enumType: typeof(string));
+		//		return (CustomerClass)values.GetValue(random.Next(values.Length));
+		//	}
+		//}
 	}
+
+	
 }

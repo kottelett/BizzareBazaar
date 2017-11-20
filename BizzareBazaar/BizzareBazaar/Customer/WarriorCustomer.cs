@@ -17,14 +17,14 @@ namespace BizzareBazaar
 		}
 		*/
 
-		public WarriorCustomer(string customerClass)
+		public WarriorCustomer(string customerCustomerGroup)
 		{
-			Class = customerClass;
+			CustomerGroup = customerCustomerGroup;
 		}
 
 		public override void PrintInformation()
 		{
-			PrintInformation(GetClass());
+			PrintInformation(GetCustomerGroup());
 		}
 
 

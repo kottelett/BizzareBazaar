@@ -26,8 +26,15 @@ namespace BizzareBazaar
 
 	  //      ItemProduction.SetTimerAndProduceItems();
 	  //      Booth.SetTimerAndFetchItems();
+	  
 
+			Console.WriteLine("Start shopping:");
+			// Lag liste med Selgere her
+			// Lag kjøpere her
 	        Controller controller = new Controller();
+			controller.InitiateShopping();
+
+			
 
 			// Hack to stop program from terminating
 			Console.ReadKey();
