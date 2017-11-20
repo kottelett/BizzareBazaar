@@ -24,7 +24,8 @@ namespace BizzareBazaar
 	  //      wizardCustomer.PrintInformation();
 
 
-	  //      ItemProduction.SetTimerAndProduceItems();
+	        ItemProduction.SetTimerAndProduceItems();
+			Global.SetTimerAndFetchItems();
 	  //      Booth.SetTimerAndFetchItems();
 
 	        Customer peasant = CustomerFactory.CreateCustomer(CustomerClass.Peasant, "Peasant1");
@@ -32,10 +33,11 @@ namespace BizzareBazaar
 
 			Console.WriteLine("Start shopping:");
 			
-	        Controller controller = new Controller();
+	        Controller controller = new Controller(peasant, salesman);
 			controller.InitiateShopping();
-			//controller.MakeTransaction(peasant, salesman);
-
+			
+			// Debug
+			Global.ItemsForSale.Add(new BasicItem(10, "Basic Item", 1));
 	        int it = 10;
 	        while (it > 0)
 	        {
@@ -46,7 +48,6 @@ namespace BizzareBazaar
 	        }
 
 			
-
 			Console.WriteLine("End shopping");
 
 			// Hack to stop program from terminating

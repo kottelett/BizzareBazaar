@@ -9,36 +9,32 @@ namespace BizzareBazaar
 {
 	static class Global
 	{
-		public const int BOOTHDAILYQUOTA = 10;
-		private static Timer _timer;
+		public const int BOOTH_DAILY_QUOTA = 10;
+		private static Timer _timer = new Timer { Interval = 2000 };
 		public static Timer Timer { get; set; }
 		public static List<IItem> ItemsForSale = new List<IItem>();
 		public static int GlobalItemNumber = 0;
 	
 		public static void SetTimerAndFetchItems()
 		{
-			_timer = new Timer { Interval = 2000 };
+			//_timer = new Timer { Interval = 2000 };
 			_timer.Elapsed += OnTimedEvent;
 			_timer.AutoReset = true;
 			_timer.Enabled = true;
 
 		}
 
-		public static IItem FetchFirstItem()
+		public static void FetchFirstItem()
 		{
-
-			ItemsForSale.Add(ItemProduction.Storage.First<IItem>());
 			IItem item = ItemProduction.Storage.First<IItem>();
-			ItemProduction.Storage.Remove(ItemProduction.Storage.First<IItem>());
-
-			return item;
-
+			ItemsForSale.Add(item);
+			ItemProduction.Storage.Remove(item);
+			
 		}
 
 		public static void OnTimedEvent(Object source, ElapsedEventArgs e)
 		{
-			// fix magic number
-			if (ItemsForSale.Count != 0)
+			if (ItemProduction.Storage.Count != 0)
 			{
 				FetchFirstItem();
 			}

@@ -9,63 +9,63 @@ namespace BizzareBazaar
 {
     class Booth 
     {
-        static Timer _timer;
-        public static List<IItem> BoothInventory = new List<IItem>();
+  //      static Timer _timer;
+  //      //public static List<IItem> BoothInventory = new List<IItem>();
 
-        public Booth()
-        {
+  //      public Booth()
+  //      {
 
 
-        }
-		public static IItem FetchFirstItem()
-		{
-			BoothInventory.Add(ItemProduction.Storage.First<IItem>());
+  //      }
+		//public static IItem FetchFirstItem()
+		//{
+		//	Global.ItemsForSale.Add(ItemProduction.Storage.First<IItem>());
 
-			ItemProduction.Storage.Remove(ItemProduction.Storage.First<IItem>());
+		//	ItemProduction.Storage.Remove(ItemProduction.Storage.First<IItem>());
 
-			return BoothInventory.First<IItem>();
+		//	return Global.ItemsForSale.First<IItem>();
 
-		}
+		//}
 
-		public static void PrintInventory()
-        {
-            for (int i = 0; i < BoothInventory.Count; i++)
-            {
+		//public static void PrintInventory()
+  //      {
+  //          for (int i = 0; i < Global.ItemsForSale.Count; i++)
+  //          {
+		//		//Debug
+  //              Console.Write("item #" + i.ToString() + " ");
+		//		PrintItem(Global.ItemsForSale[i]);
+  //          }
+  //      }
 
-                Console.Write("item #" + i.ToString() + " ");
-                PrintItem(BoothInventory[i]);
-            }
-        }
+  //      public static void PrintItem(IItem item)
+  //      {
+  //          Console.WriteLine(item.GetDescription() + " | Price: " + item.GetPrice());
 
-        public static void PrintItem(IItem item)
-        {
-            Console.WriteLine(item.GetDescription() + " | Price: " + item.GetPrice());
+  //      }
 
-        }
+		//public static void SetTimerAndFetchItems()
+		//{
+		//	_timer = new Timer { Interval = 2000 };
+		//	_timer.Elapsed += OnTimedEvent;
+		//	_timer.AutoReset = true;
+		//	_timer.Enabled = true;
 
-		public static void SetTimerAndFetchItems()
-		{
-			_timer = new Timer { Interval = 2000 };
-			_timer.Elapsed += OnTimedEvent;
-			_timer.AutoReset = true;
-			_timer.Enabled = true;
+		//}
 
-		}
-
-		public static void OnTimedEvent(Object source, ElapsedEventArgs e)
-		{
-			if (BoothInventory.Count < 5)
-			{
-				FetchFirstItem();
-				//PrintInventory();
-				//Console.WriteLine("\n");
-			}
-			else
-			{
-				//Console.WriteLine("Booth1`s inventory is full");
-			}
-			//  Console.WriteLine("Elapsed event at {0}", e.SignalTime);
-		}
+		//public static void OnTimedEvent(Object source, ElapsedEventArgs e)
+		//{
+		//	if (Global.ItemsForSale.Count < 5)
+		//	{
+		//		FetchFirstItem();
+		//		//PrintInventory();
+		//		//Console.WriteLine("\n");
+		//	}
+		//	else
+		//	{
+		//		//Console.WriteLine("Booth1`s inventory is full");
+		//	}
+		//	//  Console.WriteLine("Elapsed event at {0}", e.SignalTime);
+		//}
 
 
 

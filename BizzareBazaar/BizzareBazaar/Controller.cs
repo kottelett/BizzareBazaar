@@ -30,6 +30,10 @@ namespace BizzareBazaar
 		{
 			_custormerModel = c;
 			_salesmanModel = s;
+			_view = new View();
+			_view.ShowInventory(Global.ItemsForSale
+				);
+			_view.ShowInventory(_salesmanModel.GetInventory());
 		}
 
 		public void InitiateShopping()
@@ -45,9 +49,10 @@ namespace BizzareBazaar
 		public void MakeTransaction()
 		{
 			//Tråd?
-
+			_salesmanModel.CheckStorageForItems();
 			if (_salesmanModel.GetFirstItem() != null)
 			{
+				
 				IItem firstItem = _salesmanModel.GetFirstItem();
 				_custormerModel.AddOneItemToInventory(firstItem);
 				_salesmanModel.RemoveFirstItemFromInventory();
@@ -66,7 +71,7 @@ namespace BizzareBazaar
 				for (int i = 0; i < numberOfPersons; i++)
 				{
 					string name = "salesman" + i;
-					list.Add(new Salesman(name, Global.BOOTHDAILYQUOTA));
+					list.Add(new Salesman(name, Global.BOOTH_DAILY_QUOTA));
 				}
 			}
 			else
