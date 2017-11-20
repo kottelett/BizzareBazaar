@@ -45,6 +45,7 @@
     <Compile Include="Booth.cs" />
     <Compile Include="Customer\Customer.cs" />
     <Compile Include="Customer\PeasantCustomer.cs" />
+    <Compile Include="Customer\WarriorCustomer.cs" />
     <Compile Include="Item\ItemProduction.cs" />
     <Compile Include="Item\BasicItem.cs" />
     <Compile Include="Item\IItem.cs" />
