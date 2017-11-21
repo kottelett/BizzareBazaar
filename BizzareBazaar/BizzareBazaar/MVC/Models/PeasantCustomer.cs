@@ -17,7 +17,7 @@ namespace BizzareBazaar
             Agility = agility;
         }
 		*/
-	    public PeasantCustomer(string customerCustomerGroup)
+	    public PeasantCustomer(string customerCustomerGroup) // group?
 	    {
 		    CustomerGroup = customerCustomerGroup;
 	    }
@@ -34,7 +34,7 @@ namespace BizzareBazaar
 	    }*/
 	    public override void PrintInformation()
 	    {
-		    Console.Write(CustomerGroup.ToString());
+		    Console.Write(CustomerGroup.ToString()); // customergroup?
 	    }
 
     }

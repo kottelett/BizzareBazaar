@@ -8,24 +8,22 @@ namespace BizzareBazaar
 {
 	class Salesman : Person
 	{
-		private string _name;
-		private int _dailyQuota;
+		
 
 
-		public int NumberofSoldItems { get; set; }
 
 		public string Name { get; set; }
-		public int DailyQuota { get; set; }
+		public int DailyQuota { get; set; } 
 
 		public Salesman(string name = "Default", int quota = 20)
 		{
-			_name = name;
-			_dailyQuota = quota;
+			Name = name;
+			DailyQuota = quota;
 			
 		}
 
 		// TRÅD HER?
-		public void CheckStorageForItems()
+		public void CheckStorageForItems() // ???
 		{
 			if (Global.ItemsForSale.Count != 0)
 			{
@@ -36,7 +34,7 @@ namespace BizzareBazaar
 
 		public override void PrintInformation()
 		{
-			Console.Write("The salesman " + _name);
+			Console.Write("The salesman " + Name);
 		}
 	}
 

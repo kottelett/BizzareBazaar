@@ -13,12 +13,13 @@ namespace BizzareBazaar
 	    private readonly ItemCreator _item = new ItemCreator();
         private static Timer _timer;
 	    public static List<IItem> Storage { get; set; } = new List<IItem>();
-
+        private int ItemNumber = 0;
 
 		public ItemProduction()
         {
-			Storage.Add(_item.CreateRndItem(Global.GlobalItemNumber));
-	        Global.GlobalItemNumber++;
+            
+			Storage.Add(_item.CreateRndItem(ItemNumber));
+	        ItemNumber++;
 			SetTimerAndProduceItems();
 	        /*  for (int i = 0; i < 10; i++)
               {

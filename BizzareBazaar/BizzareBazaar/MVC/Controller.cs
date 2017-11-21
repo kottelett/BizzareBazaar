@@ -13,12 +13,11 @@ namespace BizzareBazaar
 		private readonly Customer _custormerModel;
 		private readonly Salesman _salesmanModel;
 		private readonly View _view;
-		//private List<IItem> _inventoryItems;
-		private List<Person> _salesmenOnBazaar;
+		private List<Person> _salesmenOnBazaar; // ???
 
-		private List<Person> _customersOnBazaar;
+		private List<Person> _customersOnBazaar; // ???
 
-		public Controller()
+		public Controller() // ???
 		{
 			_custormerModel = new PeasantCustomer("Peasant");
 			_salesmanModel = new Salesman("Salesman1", 10);
@@ -38,7 +37,7 @@ namespace BizzareBazaar
 
 		public void InitiateShopping()
 		{
-			// 
+			
 			_salesmanModel.CheckStorageForItems();
 			Global.SetTimerAndFetchItems();
 			// Creates list of salesmen and customers 
@@ -71,15 +70,14 @@ namespace BizzareBazaar
 				for (int i = 0; i < numberOfPersons; i++)
 				{
 					string name = "salesman" + i;
-					list.Add(new Salesman(name, Global.BOOTH_DAILY_QUOTA));
+					list.Add(new Salesman(name, Global.BOOTH_DAILY_QUOTA)); // BOOTH_DAILY_QUOTA?
 				}
 			}
 			else
 			{
 				for (int i = 0; i < numberOfPersons; i++)
 				{
-					string name = "customer" + i;
-					//list.Add(CustomerFactory.CreateRandomCustomer(name));
+					string name = "customer" + i; // ???
 					list.Add(CustomerFactory.CreateCustomer(CustomerClass.Peasant, "Peasant1"));
 				}
 			}

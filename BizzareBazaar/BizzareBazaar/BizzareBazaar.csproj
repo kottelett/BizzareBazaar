@@ -42,12 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller.cs" />
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\PeasantCustomer.cs" />
-    <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\Salesman.cs" />
-    <Compile Include="Models\WarriorCustomer.cs" />
+    <Compile Include="MVC\Controller.cs" />
+    <Compile Include="MVC\Models\Customer.cs" />
+    <Compile Include="MVC\Models\PeasantCustomer.cs" />
+    <Compile Include="MVC\Models\Person.cs" />
+    <Compile Include="MVC\Models\Salesman.cs" />
+    <Compile Include="MVC\Models\WarriorCustomer.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Item\ItemProduction.cs" />
     <Compile Include="Item\BasicItem.cs" />
@@ -55,11 +55,11 @@
     <Compile Include="Item\ItemCreator.cs" />
     <Compile Include="Item\ItemDecorator.cs" />
     <Compile Include="Item\MagicDecorator.cs" />
-    <Compile Include="Models\CustomerFactory.cs" />
+    <Compile Include="MVC\Models\CustomerFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\WizardCustomer.cs" />
-    <Compile Include="View.cs" />
+    <Compile Include="MVC\Models\WizardCustomer.cs" />
+    <Compile Include="MVC\View.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

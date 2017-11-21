@@ -8,7 +8,7 @@ namespace BizzareBazaar
 {
 	class View
 	{
-		public View()
+		public View() // ???
 		{
 			
 		}

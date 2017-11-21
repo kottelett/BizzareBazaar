@@ -17,7 +17,7 @@ namespace BizzareBazaar
 		}
 		*/
 
-		public WarriorCustomer(string customerCustomerGroup)
+		public WarriorCustomer(string customerCustomerGroup) // customerCustomergroup??
 		{
 			CustomerGroup = customerCustomerGroup;
 		}

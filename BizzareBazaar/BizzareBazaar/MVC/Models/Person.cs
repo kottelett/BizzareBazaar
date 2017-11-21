@@ -6,13 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BizzareBazaar
-{
+{ // Person + salesman istedenfor booth? 
 	internal abstract class Person
 	{
 
 		protected List<IItem> _inventory = new List<IItem>();
 
-		protected List<IItem> Inventory { get; set; }
+		protected List<IItem> Inventory { get; set; } // ???
 
 		public List<IItem> GetInventory()
 		{
@@ -37,7 +37,7 @@ namespace BizzareBazaar
 			GetInventory().AddRange(itemList);
 		}
 
-		public void RemoveFirstItemFromInventory()
+		public void RemoveFirstItemFromInventory() // Finnes egen metoder for det i list
 		{
 			GetInventory().RemoveAt(0);
 		}
