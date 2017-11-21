@@ -42,11 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IManipulateInventory.cs" />
+    <Compile Include="MVC\Models\Booth.cs" />
     <Compile Include="MVC\Controller.cs" />
     <Compile Include="MVC\Models\Customer.cs" />
     <Compile Include="MVC\Models\PeasantCustomer.cs" />
     <Compile Include="MVC\Models\Person.cs" />
-    <Compile Include="MVC\Models\Salesman.cs" />
     <Compile Include="MVC\Models\WarriorCustomer.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Item\ItemProduction.cs" />
