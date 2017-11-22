@@ -11,76 +11,61 @@ namespace BizzareBazaar
 	class Controller
 	{
 		private readonly Customer _custormerModel;
-		private readonly Salesman _salesmanModel;
+		private readonly Booth _boothModel;
 		private readonly View _view;
-		private List<Person> _salesmenOnBazaar; // ???
+		//private List<Person> _salesmenOnBazaar; // ???
 
 		private List<Person> _customersOnBazaar; // ???
 
 		public Controller() // ???
 		{
 			_custormerModel = new PeasantCustomer("Peasant");
-			_salesmanModel = new Salesman("Salesman1", 10);
+			_boothModel = new Booth(10);
 			_view = new View();
 			Console.WriteLine(_view.ItemList);
 		}
 
-		public Controller(Customer c, Salesman s)
+		public Controller(Customer c, Booth s)
 		{
 			_custormerModel = c;
-			_salesmanModel = s;
+			_boothModel = s;
 			_view = new View();
-			_view.ShowInventory(Global.ItemsForSale
-				);
-			_view.ShowInventory(_salesmanModel.GetInventory());
+			//_view.ShowInventory(Global.ItemsForSale);
+			foreach (var item in s.Inventory)
+			{
+				_view.PrintItem(item);
+			}
 		}
 
 		public void InitiateShopping()
 		{
-			
-			_salesmanModel.CheckStorageForItems();
-			Global.SetTimerAndFetchItems();
-			// Creates list of salesmen and customers 
-			_salesmenOnBazaar = createPersons(5, _salesmanModel);
-			_customersOnBazaar = createPersons(5, _custormerModel);
+			_boothModel.SetTimerAndFetchItems();
+			// Creates random list of salesmen and customers 
+			//_salesmenOnBazaar = createPersons(5, _boothModel);
+			_customersOnBazaar = createPersons(5);
 		}
 
 		public void MakeTransaction()
 		{
-			//Tråd?
-			_salesmanModel.CheckStorageForItems();
-			if (_salesmanModel.GetFirstItem() != null)
+			if (_boothModel.Inventory.Count != 0)
 			{
-				
-				IItem firstItem = _salesmanModel.GetFirstItem();
-				_custormerModel.AddOneItemToInventory(firstItem);
-				_salesmanModel.RemoveFirstItemFromInventory();
-
-				_view.ItemBought(firstItem, _custormerModel);
-
+			_custormerModel.BuyItem(_boothModel);
+			_view.PrintDescription(_custormerModel);
+			_view.ItemBought(_custormerModel.GetFirstItem(), _custormerModel);
 			}
-
 		}
 
-		private List<Person> createPersons (int numberOfPersons, Person param)
+		
+		// Kanskje ikke controller-funksjonalitet?
+		private List<Person> createPersons (int numberOfPersons)
 		{
 			List<Person> list = new List<Person>();
-			if (param.GetType() == typeof(Salesman))
-			{
-				for (int i = 0; i < numberOfPersons; i++)
-				{
-					string name = "salesman" + i;
-					list.Add(new Salesman(name, Global.BOOTH_DAILY_QUOTA)); // BOOTH_DAILY_QUOTA?
-				}
-			}
-			else
-			{
+			
 				for (int i = 0; i < numberOfPersons; i++)
 				{
 					string name = "customer" + i; // ???
-					list.Add(CustomerFactory.CreateCustomer(CustomerClass.Peasant, "Peasant1"));
+					list.Add(CustomerFactory.CreateCustomer(CustomerClass.Peasant, name));
 				}
-			}
 			
 			return list;
 

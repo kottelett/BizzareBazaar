@@ -11,16 +11,43 @@ namespace BizzareBazaar
     {
         public static void Main(string[] args)
         {
+<<<<<<< HEAD
         
 
 
+=======
+   
+>>>>>>> 69044a8f518815936d562902b6bfc52af6e6fd51
             ItemProduction.SetTimerAndProduceItems();
-			Global.SetTimerAndFetchItems();
+			Booth b = new Booth();
+	        b.SetTimerAndFetchItems();
+	        
 
 			Console.WriteLine("Start shopping:");
 
+<<<<<<< HEAD
            
             
+=======
+            Customer peasant = CustomerFactory.CreateCustomer(CustomerClass.Peasant, "Peasant1");
+            Booth salesman = new Booth(5);
+            Controller controller = new Controller(peasant, salesman);
+			controller.InitiateShopping();
+			
+			// Debug
+			
+	        int it = 10;
+	        while (it > 0)
+	        {
+		        
+				controller.MakeTransaction();
+		        Console.ReadLine();
+				Console.WriteLine(it);
+		        it--;
+	        }
+
+			
+>>>>>>> 69044a8f518815936d562902b6bfc52af6e6fd51
 			Console.WriteLine("End shopping");
 
 			Console.ReadKey();

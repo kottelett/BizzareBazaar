@@ -14,6 +14,17 @@ namespace BizzareBazaar
 		//protected double Intelect;
 		//protected double Agility;
 
+		// tråd
+		public void BuyItem(Booth booth)
+		{
+			if(booth.Inventory.Count != 0)
+			{ 
+			IItem item = booth.Inventory.First();
+			Inventory.Add(item);
+			booth.Inventory.Remove(item);
+			}
+		}
+
 
 		protected string GetCustomerGroup()
 		{

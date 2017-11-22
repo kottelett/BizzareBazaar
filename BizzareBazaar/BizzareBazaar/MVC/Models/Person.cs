@@ -6,40 +6,32 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BizzareBazaar
-{ // Person + salesman istedenfor booth? 
-	internal abstract class Person
+{
+	internal abstract class Person : IManipulateInventory
 	{
-
-		protected List<IItem> _inventory = new List<IItem>();
-
-		protected List<IItem> Inventory { get; set; } // ???
-
-		public List<IItem> GetInventory()
+		public List<IItem> Inventory { get; set; } = new List<IItem>();
+		
+		protected Person()
 		{
-			return _inventory;
 		}
 
-		public void SetInventory(List<IItem> value)
-		{
-			_inventory = value;
-		}
 		public IItem GetFirstItem()
 		{
-			return GetInventory().FirstOrDefault();
+			return Inventory.FirstOrDefault();
 		}
 		public void AddOneItemToInventory(IItem item)
 		{
-			GetInventory().Add(item);
+			Inventory.Add(item);
 		}
 
 		public void AddItemsToInventory(List<IItem> itemList)
 		{
-			GetInventory().AddRange(itemList);
+			Inventory.AddRange(itemList);
 		}
 
 		public void RemoveFirstItemFromInventory() // Finnes egen metoder for det i list
 		{
-			GetInventory().RemoveAt(0);
+			Inventory.RemoveAt(0);
 		}
 
 		public abstract void PrintInformation();

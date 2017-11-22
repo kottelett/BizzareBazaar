@@ -21,13 +21,17 @@ namespace BizzareBazaar
 
 		}
 
-		public void ShowInventory(List<IItem> items)
-		{
-			foreach (var item in items)
-			{
-				Console.WriteLine(item.GetDescription());
-			}
-		}
+		//public void ShowInventory(List<IItem> items)
+		//{
+		//	if (items.Count != 0)
+		//	{
+		//		foreach (var item in items)
+		//		{
+		//			Console.WriteLine(item.GetDescription());
+		//		}
+		//	}
+			
+		//}
 
 		public void ItemBought(IItem item, Person customerName)
 		{
