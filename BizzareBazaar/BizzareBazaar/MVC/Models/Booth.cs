@@ -10,10 +10,16 @@ namespace BizzareBazaar
 	class Booth : IManipulateInventory
 	{
 
-		public int DailyQuota { get; set; }
+	    public int DailyQuota { get; set; } 
+
 		public List<IItem> Inventory { get; set; } = new List<IItem>();
+
 		public int BoothNumber { get; set; }
+
 		private static readonly Timer Timer = new Timer { Interval = 2000 }; // Muligens ok for global
+
+
+
 		public Booth(int quota = 10, int boothNumber = 0)
 		{
 			DailyQuota = quota;
