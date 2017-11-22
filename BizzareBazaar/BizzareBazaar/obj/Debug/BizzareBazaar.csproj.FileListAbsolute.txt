@@ -19,3 +19,12 @@ C:\Users\larsd\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\obj\De
 C:\Users\larsd\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\obj\Debug\BizzareBazaar.csproj.CoreCompileInputs.cache
 C:\Users\larsd\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\obj\Debug\BizzareBazaar.exe
 C:\Users\larsd\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\obj\Debug\BizzareBazaar.pdb
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\NUnit3.TestAdapter.dll
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\nunit.engine.dll
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\nunit.engine.api.dll
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\Mono.Cecil.dll
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\Mono.Cecil.Pdb.dll
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\Mono.Cecil.Mdb.dll
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\Mono.Cecil.Rocks.dll
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\nunit.framework.dll
+C:\Users\svettleif\Documents\GitHub\BizzareBazaar\BizzareBazaar\BizzareBazaar\bin\Debug\nunit.framework.xml

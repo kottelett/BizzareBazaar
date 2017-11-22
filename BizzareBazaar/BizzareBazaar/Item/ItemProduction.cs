@@ -13,22 +13,9 @@ namespace BizzareBazaar
 	    private readonly ItemCreator _item = new ItemCreator();
         private static Timer _timer;
 	    public static List<IItem> Storage { get; set; } = new List<IItem>();
-        private int ItemNumber = 0;
+        private static int _itemNumber = 0;
 
-		public ItemProduction()
-        {
-            
-			Storage.Add(_item.CreateRndItem(ItemNumber));
-	        ItemNumber++;
-			SetTimerAndProduceItems();
-	        /*  for (int i = 0; i < 10; i++)
-              {
-                  storage.Add(item.CreateRndItem(i));
-                  System.Threading.Thread.Sleep(100);
-              } */
-
-	        // Console.WriteLine("Number of items: " + storage.Count + "\n");
-        }
+		
 
         public void PrintStorage()
         {
@@ -62,11 +49,9 @@ namespace BizzareBazaar
         public static void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
             ItemCreator item = new ItemCreator();
-            int i = 0;
-            Storage.Add(item.CreateRndItem(i));
-           // i++;
+            Storage.Add(item.CreateRndItem(_itemNumber));
+            _itemNumber++;
 
-            Console.WriteLine("OnTimedEvent ItemProduction\n");
 
 
         }

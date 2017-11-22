@@ -32,7 +32,7 @@ namespace BizzareBazaar
 		public void ItemBought(IItem item, Person customerName)
 		{
 			customerName.PrintInformation();
-			Console.WriteLine(" bought " + item.GetDescription());
+			Console.WriteLine(" bought " + "Item # " +item.GetItemNumber() + item.GetDescription());
 		}
 
 		public void ItemForSale(IItem item, string salesmanName)

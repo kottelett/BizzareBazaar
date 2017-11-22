@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizzareBazaar", "BizzareBazaar\BizzareBazaar.csproj", "{BE79A8EA-8D21-468E-AB95-3FEBABCA69B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BazaarUnitTest", "BazaarUnitTest\BazaarUnitTest.csproj", "{F5EA4B8D-C4A6-4E8F-8693-88CF36E729AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BE79A8EA-8D21-468E-AB95-3FEBABCA69B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE79A8EA-8D21-468E-AB95-3FEBABCA69B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE79A8EA-8D21-468E-AB95-3FEBABCA69B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5EA4B8D-C4A6-4E8F-8693-88CF36E729AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5EA4B8D-C4A6-4E8F-8693-88CF36E729AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5EA4B8D-C4A6-4E8F-8693-88CF36E729AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5EA4B8D-C4A6-4E8F-8693-88CF36E729AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
