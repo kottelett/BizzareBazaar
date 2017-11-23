@@ -59,7 +59,20 @@ namespace BizzareBazaar
 
 		public override void PrintBoothNumber()
 		{
-			Console.Write("CustomerClass.PrintBoothNumber()");
+			Console.WriteLine();
 		}
+
+	    public override string GetDescription()
+	    {
+
+
+
+	        return CustomerGroup;
+	    }
+
+
+
+
+
 	}
 }

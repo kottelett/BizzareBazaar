@@ -18,6 +18,8 @@ namespace BizzareBazaar
 
 		private static readonly Timer Timer = new Timer { Interval = 300}; // Muligens ok for global
 
+	    public bool SoldQuota = false;
+
 
 
 		public Booth(int quota, int boothNumber)
@@ -64,14 +66,15 @@ namespace BizzareBazaar
 		        ItemProduction.Storage.Remove(item);
 		       // PrintItem(item);
                 DailyQuota--;
-              // Console.WriteLine(DailyQuota);
+              Console.WriteLine(DailyQuota);
             }
             
 		    if (DailyQuota == 0)
 		    {
+      
 		        Timer.Stop();
-
-             //   Console.WriteLine(Inventory.Count);
+		        SoldQuota = true;
+		        //   Console.WriteLine(Inventory.Count);
 		    }
 		}
 
@@ -96,9 +99,11 @@ namespace BizzareBazaar
 
 
 		// Fjernes fra Interface?
-		public void PrintBoothNumber()
+		public string GetDescription()
 		{
-			Console.Write("Boothnumber " + BoothNumber);
+		    String info = "Booth#" + BoothNumber;
+
+		    return info;
 		}
 
 

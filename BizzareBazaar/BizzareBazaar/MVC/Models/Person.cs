@@ -34,7 +34,13 @@ namespace BizzareBazaar
 			Inventory.RemoveAt(0);
 		}
 
-		public abstract void PrintBoothNumber();
+	    public virtual string GetDescription()
+	    {
+	        return "HMM";
+	    }
+
+
+	    public abstract void PrintBoothNumber();
 
 	}
 }

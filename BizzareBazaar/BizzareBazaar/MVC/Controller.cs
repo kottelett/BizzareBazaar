@@ -68,8 +68,7 @@ namespace BizzareBazaar
 		        {
                     Customer c = (Customer) _customerModel.ElementAt(i);
                     c.BuyItem(_boothModel.ElementAt(i));
-		            _view.PrintPersonDescription(_customerModel.ElementAt(i));
-		            _view.ItemBought(c.GetFirstItem(), c);
+		            _view.ItemBought(c.GetFirstItem(), c, _boothModel.ElementAt(i));
 		        }
 		    }
 		} 

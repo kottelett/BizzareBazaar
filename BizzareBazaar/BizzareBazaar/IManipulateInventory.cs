@@ -13,7 +13,7 @@ namespace BizzareBazaar
 		void AddOneItemToInventory(IItem item);
 		void AddItemsToInventory(List<IItem> itemList);
 		void RemoveFirstItemFromInventory();
-		void PrintBoothNumber();
+		string GetDescription();
 
 	}
 }

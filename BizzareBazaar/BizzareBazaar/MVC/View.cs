@@ -21,15 +21,16 @@ namespace BizzareBazaar
 		}
 
 
-		public void ItemBought(IItem item, Person customerName)
+		public void ItemBought(IItem item, Person customerName, Booth booth)
 		{
-			customerName.PrintBoothNumber();
-			Console.WriteLine(" bought " + "Item # " +item.GetItemNumber() + item.GetDescription());
+			
+			Console.WriteLine("\t\t\t" + customerName.GetDescription()  +   " bought " + "Item#" 
+            +item.GetItemNumber() + item.GetDescription() + " from " + booth.GetDescription());
 		}
 
 		public void ItemForSale(IItem item, Booth booth)
 		{
-			Console.WriteLine(item.GetDescription() + " can now be bought from " + booth.BoothNumber);
+			Console.WriteLine("item#" + item.GetItemNumber() + " " + item.GetDescription() + " can now be bought from " + booth.GetDescription());
 		}
          
 		public void PrintPersonDescription(Person person)

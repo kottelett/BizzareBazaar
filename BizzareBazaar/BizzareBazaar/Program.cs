@@ -26,8 +26,8 @@ namespace BizzareBazaar
             customers.Add(warriorCustomer);
 
             // Creates 1 booth with BoothNumber 1 and daily quota of 10
-            Booth booth1 = new Booth(20 , 1);
-            Booth booth2 = new Booth(20, 2);
+            Booth booth1 = new Booth(4 , 0);
+            Booth booth2 = new Booth(4, 1);
 
             List<Booth> boothList = new List<Booth>();
             boothList.Add(booth1);
@@ -45,46 +45,38 @@ namespace BizzareBazaar
 
             Console.ReadKey();
 
-            controller.ItemUpForSale();
-            controller.MakeTransaction();
+            int counter = 0;
+            while (!BoothClosed(boothList) && counter < 10)
+            {
+                
+                Console.WriteLine("Before");
+                controller.ItemUpForSale();
+                controller.MakeTransaction();
+                Console.WriteLine("After");
+
+                counter++;
 
 
+            }
 
             Console.ReadKey();
 
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            /* for (int i = 0; i < booth.Inventory.Count; i++)
-             {
-                 Console.WriteLine(booth.Inventory[i]);
-             } */
-
-
-            /*
-	        for (int i = 0;  i < 10; i++)
-	        {
-	            Console.WriteLine(i);
-                controller.MakeTransaction();
-	           
-	        }*/
-
+        public static bool BoothClosed(List<Booth> booth)
+        {
+            for (int i = 0; i < booth.Count; i++)
+            {
+                if (booth.ElementAt(i).SoldQuota == false)
+                {
+                    return false;
+                }
+            }
+            return true;
 
 
         }
+
 
     }
 }
