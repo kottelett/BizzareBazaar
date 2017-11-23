@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace BizzareBazaar
 {
-	class View
+	class View 
 	{
 		public View() // ???
 		{
 			
 		}
 
-		public List<IItem> ItemList { get; set; }
 
 		public void PrintItem(IItem item)
 		{
@@ -21,32 +20,23 @@ namespace BizzareBazaar
 
 		}
 
-		//public void ShowInventory(List<IItem> items)
-		//{
-		//	if (items.Count != 0)
-		//	{
-		//		foreach (var item in items)
-		//		{
-		//			Console.WriteLine(item.GetDescription());
-		//		}
-		//	}
-			
-		//}
 
 		public void ItemBought(IItem item, Person customerName)
 		{
-			customerName.PrintInformation();
+			customerName.PrintBoothNumber();
 			Console.WriteLine(" bought " + "Item # " +item.GetItemNumber() + item.GetDescription());
 		}
 
-		public void ItemForSale(IItem item, string salesmanName)
+		public void ItemForSale(IItem item, Booth booth)
 		{
-			Console.WriteLine(item.GetDescription() + " can now be bought from " + salesmanName);
+			Console.WriteLine(item.GetDescription() + " can now be bought from " + booth.BoothNumber);
+		}
+         
+		public void PrintPersonDescription(Person person)
+		{
+			person.PrintBoothNumber();
 		}
 
-		public void PrintDescription(Person person)
-		{
-			person.PrintInformation();
-		}
-	}
+	    
+    }
 }

@@ -23,7 +23,7 @@ namespace BizzareBazaar
 		}
 
 
-		public override void PrintInformation()
+		public override void PrintBoothNumber()
 		{
 			PrintInformation(GetCustomerGroup());
 		}

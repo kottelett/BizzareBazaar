@@ -57,9 +57,9 @@ namespace BizzareBazaar
 		}
 
 
-		public override void PrintInformation()
+		public override void PrintBoothNumber()
 		{
-			Console.Write("CustomerClass.PrintInformation()");
+			Console.Write("CustomerClass.PrintBoothNumber()");
 		}
 	}
 }

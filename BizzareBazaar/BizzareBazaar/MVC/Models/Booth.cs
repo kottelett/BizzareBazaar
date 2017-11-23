@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 
 namespace BizzareBazaar
@@ -10,32 +8,24 @@ namespace BizzareBazaar
 	class Booth : IManipulateInventory
 	{
 
-	    public int DailyQuota { get; set; } 
+	    public int DailyQuota { get; set; }
+
+	    public int InventoryMaxSize = 5;
 
 		public List<IItem> Inventory { get; set; } = new List<IItem>();
 
 		public int BoothNumber { get; set; }
 
-		private static readonly Timer Timer = new Timer { Interval = 2000 }; // Muligens ok for global
+		private static readonly Timer Timer = new Timer { Interval = 300}; // Muligens ok for global
 
 
 
-		public Booth(int quota = 10, int boothNumber = 0)
+		public Booth(int quota, int boothNumber)
 		{
 			DailyQuota = quota;
 			BoothNumber = boothNumber;
 		}
 
-		//public void CheckStorageForItems()
-		//{
-		//	if (ItemProduction.Storage.Count != 0)
-		//	{
-		//		//tråd! 
-		//		Inventory.Add(ItemProduction.Storage.First());
-		//		ItemProduction.Storage.RemoveAt(0);
-
-		//	}
-		//}
 
 		public IItem GetFirstItem()
 		{
@@ -58,7 +48,6 @@ namespace BizzareBazaar
 
 		public void SetTimerAndFetchItems()
 		{
-			//_timer = new Timer { Interval = 2000 };
 			Timer.Elapsed += OnTimedEvent;
 			Timer.AutoReset = true;
 			Timer.Enabled = true;
@@ -67,11 +56,27 @@ namespace BizzareBazaar
 
 		public void FetchFirstItem()
 		{
-			IItem item = ItemProduction.Storage.First<IItem>();
-			Inventory.Add(item);
-			ItemProduction.Storage.Remove(item);
 
+            if (ItemProduction.Storage.Count != 0 && Inventory.Count < InventoryMaxSize)
+            {
+		        IItem item = ItemProduction.Storage.First();
+		        Inventory.Add(item);
+		        ItemProduction.Storage.Remove(item);
+		       // PrintItem(item);
+                DailyQuota--;
+              // Console.WriteLine(DailyQuota);
+            }
+            
+		    if (DailyQuota == 0)
+		    {
+		        Timer.Stop();
+
+             //   Console.WriteLine(Inventory.Count);
+		    }
 		}
+
+
+		
 
 		public void OnTimedEvent(Object source, ElapsedEventArgs e)
 		{
@@ -81,11 +86,26 @@ namespace BizzareBazaar
 			}
 		}
 
+        //tråd 
+	    public IItem ItemUpForSale()
+	    {
+	        IItem item = Inventory.First();
+
+	        return item;
+	    }
+
 
 		// Fjernes fra Interface?
-		public void PrintInformation()
+		public void PrintBoothNumber()
 		{
 			Console.Write("Boothnumber " + BoothNumber);
 		}
+
+
+        //La stå
+	    public void PrintItem(IItem item)
+	    {
+	        Console.WriteLine("Item# " + item.GetItemNumber() + " " + item.GetDescription() + "Price is: " + item.GetPrice());
+	    }
 	}
 }

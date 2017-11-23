@@ -10,10 +10,9 @@ namespace BizzareBazaar
 {
     class ItemProduction
     {
-	    private readonly ItemCreator _item = new ItemCreator();
         private static Timer _timer;
 	    public static List<IItem> Storage { get; set; } = new List<IItem>();
-        private static int _itemNumber = 0;
+        private static int _itemNumber;
 
 		
 
@@ -39,7 +38,7 @@ namespace BizzareBazaar
         // Triggers OnTimedEvent every 1000 ms
 	    public static void SetTimerAndProduceItems()
         {
-	        _timer = new Timer {Interval = 1000};
+	        _timer = new Timer {Interval = 200};
 	        _timer.Elapsed += OnTimedEvent;
             _timer.AutoReset = true;
             _timer.Enabled = true;
@@ -51,8 +50,6 @@ namespace BizzareBazaar
             ItemCreator item = new ItemCreator();
             Storage.Add(item.CreateRndItem(_itemNumber));
             _itemNumber++;
-
-
 
         }
 

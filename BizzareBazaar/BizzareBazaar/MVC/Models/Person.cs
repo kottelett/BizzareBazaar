@@ -34,7 +34,7 @@ namespace BizzareBazaar
 			Inventory.RemoveAt(0);
 		}
 
-		public abstract void PrintInformation();
+		public abstract void PrintBoothNumber();
 
 	}
 }
