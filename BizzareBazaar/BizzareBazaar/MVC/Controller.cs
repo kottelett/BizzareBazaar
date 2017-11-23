@@ -1,46 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
 
 
 namespace BizzareBazaar
 {
 	class Controller
 	{
-		private readonly Customer _customerModel;
-		private readonly Booth _boothModel;
+		private readonly List<Person> _customerModel;
+		private readonly List<Booth> _boothModel;
 		private readonly View _view;
 
 
 
 	
-		public Controller(Customer customer, Booth booth)
+		//public Controller(Customer customer, Booth booth)
+		//{
+		//	_customerModel = customer;
+		//	_boothModel = booth;
+
+		//	_view = new View();
+		//} 
+
+	    public Controller(List<Person> customers, List<Booth> booths)
+	    {
+	        _customerModel = customers;
+	        _boothModel = booths;
+
+	        _view = new View();
+	        
+        }
+
+
+        public void InitiateBoothFetch() 
 		{
-			_customerModel = customer;
-			_boothModel = booth;
+		    for (int i = 0; i < _boothModel.Count; i++)
+		    {
+		        _boothModel.ElementAt(i).SetTimerAndFetchItems();
+		    }
 
-			_view = new View();
 
-			foreach (var item in booth.Inventory)
-			{
-				_view.PrintItem(item);
-			}
-		}
-
-        
-		public void InitiateBoothFetch() 
-		{
-			_boothModel.SetTimerAndFetchItems();
-            
-			
 		}
 
 	    public void ItemUpForSale()
 	    {
-	        if (_boothModel.Inventory.Count != 0)
+	        for (int i = 0; i < _boothModel.Count; i++)
 	        {
-	            IItem item = _boothModel.Inventory.First();
-	            _view.ItemForSale(item, _boothModel);
+
+	            if (_boothModel.ElementAt(i).Inventory.Count != 0)
+	            {
+	                IItem item = _boothModel.ElementAt(i).Inventory.First();
+	                _view.ItemForSale(item, _boothModel[i]);
+	            }
 	        }
 	    }
 
@@ -48,51 +60,21 @@ namespace BizzareBazaar
 
         public void MakeTransaction()
 		{
-			if (_boothModel.Inventory.Count != 0)
-			{
-			_customerModel.BuyItem(_boothModel);
-			_view.PrintPersonDescription(_customerModel);
-			_view.ItemBought(_customerModel.GetFirstItem(), _customerModel);
-			}
+
+		    for (int i = 0; i < _boothModel.Count; i++)
+		    {
+
+		        if (_boothModel.ElementAt(i).Inventory.Count != 0)
+		        {
+                    Customer c = (Customer) _customerModel.ElementAt(i);
+                    c.BuyItem(_boothModel.ElementAt(i));
+		            _view.PrintPersonDescription(_customerModel.ElementAt(i));
+		            _view.ItemBought(c.GetFirstItem(), c);
+		        }
+		    }
 		} 
 
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		// Kanskje ikke controller-funksjonalitet?
-		private List<Person> createPersons (int numberOfPersons)
-		{
-			List<Person> list = new List<Person>();
-			
-				for (int i = 0; i < numberOfPersons; i++)
-				{
-					string name = "customer" + i; // ???
-					list.Add(CustomerFactory.CreateCustomer(CustomerClass.Peasant, name));
-				}
-			
-			return list;
-
-		}
-		
+				
 	}
 }
 

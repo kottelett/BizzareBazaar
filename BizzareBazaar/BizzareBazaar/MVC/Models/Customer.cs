@@ -19,9 +19,9 @@ namespace BizzareBazaar
 		{
 			if(booth.Inventory.Count != 0)
 			{ 
-			IItem item = booth.Inventory.First();
-			Inventory.Add(item);
-			booth.Inventory.Remove(item);
+			    IItem item = booth.Inventory.First();
+			    Inventory.Add(item);
+			    booth.Inventory.Remove(item);
 			}
 		}
 

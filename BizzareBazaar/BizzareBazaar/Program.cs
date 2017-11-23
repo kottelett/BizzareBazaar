@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -15,21 +16,35 @@ namespace BizzareBazaar
             ItemProduction.SetTimerAndProduceItems();
                         
             // Creates customer of type peasant in CustomerFactory
-            Customer peasant = CustomerFactory.CreateCustomer(CustomerClass.Peasant, "Peasant1");
+            Customer wizardCustomer = CustomerFactory.CreateCustomer(CustomerClass.Wizard, "WizardCustomer");
+            Customer peasantCustomer = CustomerFactory.CreateCustomer(CustomerClass.Peasant, "PeasantCustomer");
+            Customer warriorCustomer = CustomerFactory.CreateCustomer(CustomerClass.Warrior, "WarriorCustomer");
+
+            List<Person> customers = new List<Person>();
+            customers.Add(wizardCustomer);
+            customers.Add(peasantCustomer);
+            customers.Add(warriorCustomer);
+
             // Creates 1 booth with BoothNumber 1 and daily quota of 10
-            Booth booth = new Booth(20 , 1);
-            
+            Booth booth1 = new Booth(20 , 1);
+            Booth booth2 = new Booth(20, 2);
+
+            List<Booth> boothList = new List<Booth>();
+            boothList.Add(booth1);
+            boothList.Add(booth2);
+
 
 
             // Fetches items from list in ItemProduction 
             // ...same as : booth.SetTimerAndFetchItems(); Contains Console.WriteLine(item)
-            Controller controller = new Controller(peasant, booth);
+            Controller controller = new Controller(customers, boothList);
             controller.InitiateBoothFetch();
 
             
             Console.WriteLine("yep");
 
             Console.ReadKey();
+
             controller.ItemUpForSale();
             controller.MakeTransaction();
 
