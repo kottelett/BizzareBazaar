@@ -66,15 +66,17 @@ namespace BizzareBazaar
 		        ItemProduction.Storage.Remove(item);
 		       // PrintItem(item);
                 DailyQuota--;
-              Console.WriteLine(DailyQuota);
+	            //DEBUG
+              Console.WriteLine("Booth" + BoothNumber + " daily quota: " + DailyQuota);
             }
             
-		    if (DailyQuota == 0)
+		    if (DailyQuota <= 0)
 		    {
       
 		        Timer.Stop();
 		        SoldQuota = true;
-		        //   Console.WriteLine(Inventory.Count);
+			    //DEBUG
+		        Console.WriteLine("DEBUG: Timer stopped at booth " + BoothNumber);
 		    }
 		}
 
@@ -83,7 +85,7 @@ namespace BizzareBazaar
 
 		public void OnTimedEvent(Object source, ElapsedEventArgs e)
 		{
-			if (ItemProduction.Storage.Count != 0)
+			if (ItemProduction.Storage.Count != 0 && DailyQuota > 0)
 			{
 				FetchFirstItem();
 			}

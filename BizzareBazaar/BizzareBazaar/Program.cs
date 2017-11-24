@@ -26,8 +26,8 @@ namespace BizzareBazaar
             customers.Add(warriorCustomer);
 
             // Creates 1 booth with BoothNumber 1 and daily quota of 10
-            Booth booth1 = new Booth(4 , 0);
-            Booth booth2 = new Booth(4, 1);
+            Booth booth1 = new Booth(5 , 0);
+            Booth booth2 = new Booth(5, 1);
 
             List<Booth> boothList = new List<Booth>();
             boothList.Add(booth1);
@@ -38,6 +38,7 @@ namespace BizzareBazaar
             // Fetches items from list in ItemProduction 
             // ...same as : booth.SetTimerAndFetchItems(); Contains Console.WriteLine(item)
             Controller controller = new Controller(customers, boothList);
+	        //DEBUG: Det er her ting går i surr 
             controller.InitiateBoothFetch();
 
             
