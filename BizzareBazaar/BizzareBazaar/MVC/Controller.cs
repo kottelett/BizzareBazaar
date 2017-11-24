@@ -35,10 +35,14 @@ namespace BizzareBazaar
 
         public void InitiateBoothFetch() 
 		{
-		    for (int i = 0; i < _boothModel.Count; i++)
-		    {
-		        _boothModel.ElementAt(i).SetTimerAndFetchItems();
-		    }
+			foreach (var booth in _boothModel)
+			{
+				booth.SetTimerAndFetchItems();
+			}
+		    //for (int i = 0; i < _boothModel.Count; i++)
+		    //{
+		    //    _boothModel.ElementAt(i).SetTimerAndFetchItems();
+		    //}
 
 
 		}
