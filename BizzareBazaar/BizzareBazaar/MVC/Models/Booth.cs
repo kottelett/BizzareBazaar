@@ -16,7 +16,7 @@ namespace BizzareBazaar
 
 		public int BoothNumber { get; set; }
 
-		private static readonly Timer Timer = new Timer { Interval = 300}; // Muligens ok for global
+		private readonly Timer Timer = new Timer { Interval = 1000}; // Muligens ok for global
 
 	    public bool SoldQuota = false;
 
@@ -59,7 +59,7 @@ namespace BizzareBazaar
 		public void FetchFirstItem()
 		{
 
-            if (ItemProduction.Storage.Count != 0 && Inventory.Count < InventoryMaxSize)
+            if (Inventory.Count <= InventoryMaxSize && ItemProduction.Storage.Count != 0 )
             {
 		        IItem item = ItemProduction.Storage.First();
 		        Inventory.Add(item);
@@ -72,9 +72,7 @@ namespace BizzareBazaar
             
 		    if (DailyQuota <= 0)
 		    {
-      
 		        Timer.Stop();
-		        SoldQuota = true;
 			    //DEBUG
 		        Console.WriteLine("DEBUG: Timer stopped at booth " + BoothNumber);
 		    }

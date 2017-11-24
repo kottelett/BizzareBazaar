@@ -38,7 +38,7 @@ namespace BizzareBazaar
         // Triggers OnTimedEvent every 1000 ms
 	    public static void SetTimerAndProduceItems()
         {
-	        _timer = new Timer {Interval = 200};
+	        _timer = new Timer {Interval = 500};
 	        _timer.Elapsed += OnTimedEvent;
             _timer.AutoReset = true;
             _timer.Enabled = true;

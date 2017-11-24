@@ -8,12 +8,6 @@ namespace BizzareBazaar
 {
 	class View 
 	{
-		public View() // ???
-		{
-			
-		}
-
-
 		public void PrintItem(IItem item)
 		{
 			Console.WriteLine(item.GetDescription() + " | Price: " + item.GetPrice());

@@ -73,7 +73,10 @@ namespace BizzareBazaar
                     Customer c = (Customer) _customerModel.ElementAt(i);
                     c.BuyItem(_boothModel.ElementAt(i));
 		            _view.ItemBought(c.GetFirstItem(), c, _boothModel.ElementAt(i));
-		        }
+			        _boothModel.ElementAt(i).DailyQuota--; // Lag metode for dette i Booth
+					// Lag metode for å sjekke om
+			        //SoldQuota = true;
+				}
 		    }
 		} 
 

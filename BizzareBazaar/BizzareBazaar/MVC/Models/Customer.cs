@@ -64,9 +64,6 @@ namespace BizzareBazaar
 
 	    public override string GetDescription()
 	    {
-
-
-
 	        return CustomerGroup;
 	    }
 

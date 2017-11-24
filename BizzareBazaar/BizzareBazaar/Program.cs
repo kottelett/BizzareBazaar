@@ -26,18 +26,20 @@ namespace BizzareBazaar
             customers.Add(warriorCustomer);
 
             // Creates 1 booth with BoothNumber 1 and daily quota of 10
-            Booth booth1 = new Booth(5 , 0);
-            Booth booth2 = new Booth(5, 1);
+            Booth booth1 = new Booth(3 , 0);
+            Booth booth2 = new Booth(3, 1);
 
             List<Booth> boothList = new List<Booth>();
             boothList.Add(booth1);
-            boothList.Add(booth2);
+			boothList.Add(booth2);
 
 
 
-            // Fetches items from list in ItemProduction 
-            // ...same as : booth.SetTimerAndFetchItems(); Contains Console.WriteLine(item)
-            Controller controller = new Controller(customers, boothList);
+			// Fetches items from list in ItemProduction 
+			// ...same as : booth.SetTimerAndFetchItems(); Contains Console.WriteLine(item)
+
+
+			Controller controller = new Controller(customers, boothList);
 	        //DEBUG: Det er her ting går i surr 
             controller.InitiateBoothFetch();
 
@@ -47,7 +49,7 @@ namespace BizzareBazaar
             Console.ReadKey();
 
             int counter = 0;
-            while (!BoothClosed(boothList) && counter < 10)
+            while ( counter < 10) //!BoothClosed(boothList) &&
             {
                 
                 Console.WriteLine("Before");
