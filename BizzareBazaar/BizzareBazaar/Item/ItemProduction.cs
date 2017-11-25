@@ -69,13 +69,13 @@ namespace BizzareBazaar
 		    Storage.Add(item.CreateRndItem(_itemNumber));
 		    _itemNumber++;
 		}
-	    private bool stopProduction()
-	    {
-		    if (_itemNumber > 100)
-				return true;
+	   // private bool stopProduction()
+	   // {
+		  //  if (_itemNumber > 100)
+				//return true;
 		    
-		    return false;
-	    }
+		  //  return false;
+	   // }
 
     }
 }

@@ -53,13 +53,6 @@ namespace BizzareBazaar
                 controller.PutItemUpForSale(booth1);
 				controller.PutItemUpForSale(booth2);
 				transactionThreads[counter].Start();
-				////threads[counter].Start();
-    //            //controller.MakeTransaction();
-	   //         controller.MakeTransaction(booth1, (Customer)customers.ElementAt(0));
-				//controller.MakeTransaction(booth1, (Customer)customers.ElementAt(1));
-	   //         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(0));
-	   //         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(1));
-	            //controller.MakeTransactionsOnList(boothList, customers);
 				Console.WriteLine("After");
 
                 counter++;
@@ -72,19 +65,17 @@ namespace BizzareBazaar
 
         }
 
-        public static bool BoothClosed(List<Booth> booth)
-        {
-            for (int i = 0; i < booth.Count; i++)
-            {
-                if (booth.ElementAt(i).SoldQuota == false)
-                {
-                    return false;
-                }
-            }
-            return true;
-
-
-        }
+        //public static bool BoothClosed(List<Booth> booth)
+        //{
+        //    for (int i = 0; i < booth.Count; i++)
+        //    {
+        //        if (booth.ElementAt(i).SoldQuota == false)
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    return true;
+        //}
 
 
     }
