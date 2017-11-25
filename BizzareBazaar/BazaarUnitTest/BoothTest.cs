@@ -17,6 +17,7 @@ namespace BazaarUnitTest
         public void boothtest()
         {
             Booth booth = new Booth(1, 10);
+
         }
 
 

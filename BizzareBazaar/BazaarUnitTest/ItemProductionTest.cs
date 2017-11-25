@@ -61,7 +61,8 @@ namespace BazaarUnitTest
         public void StorageIsEmpty()
         {
            
-             Assert.IsEmpty(ItemProduction.Storage);
+
+           Assert.IsEmpty(ItemProduction.Storage);
                             
         }
      
