@@ -14,7 +14,6 @@ namespace BizzareBazaar
 		private readonly Object _lock = new Object();
 
 
-	
 		//public Controller(Customer customer, Booth booth)
 		//{
 		//	_customerModel = customer;
@@ -23,40 +22,37 @@ namespace BizzareBazaar
 		//	_view = new View();
 		//} 
 
-	    public Controller(List<Person> customers, List<Booth> booths)
-	    {
-	        _customerModel = customers;
-	        _boothModel = booths;
+		public Controller(List<Person> customers, List<Booth> booths)
+		{
+			_customerModel = customers;
+			_boothModel = booths;
 
-	        _view = new View();
-	        
-        }
+			_view = new View();
+		}
 
 
-        public void InitiateBoothFetch() 
+		public void InitiateBoothFetch()
 		{
 			foreach (var booth in _boothModel)
 			{
 				booth.SetTimerAndFetchItems();
 			}
-		    //for (int i = 0; i < _boothModel.Count; i++)
-		    //{
-		    //    _boothModel.ElementAt(i).SetTimerAndFetchItems();
-		    //}
-
-
+			//for (int i = 0; i < _boothModel.Count; i++)
+			//{
+			//    _boothModel.ElementAt(i).SetTimerAndFetchItems();
+			//}
 		}
 
 
 		public void PutItemUpForSale(Booth booth)
 		{
-				if (booth.Inventory.Count != 0)
-				{
-					IItem item = booth.Inventory.First();
-					_view.ItemForSale(item, booth);
-				}
+			if (booth.Inventory.Count != 0)
+			{
+				IItem item = booth.Inventory.First();
+				_view.ItemForSale(item, booth);
+			}
 		}
-		
+
 
 		//public void PutItemUpForSale()
 		//{
@@ -88,29 +84,42 @@ namespace BizzareBazaar
 		//	}
 		//}
 
-  //      public void MakeTransaction()
+		//      public void MakeTransaction()
 		//{
-			
+
 		//    for (int i = 0; i < _boothModel.Count; i++)
 		//    {
 		//	    Transaction(i);
-				
+
 		//    }
 		//} 
-		public void MakeTransaction(Booth booth, Customer customer)
+		public void MakeTransactionsOnList(List<Booth> booths, List<Person> customers, int numberOfTransactions = 5)
 		{
-			if (booth.Inventory.Count != 0)
-			{
-				customer.BuyItem(booth);
-				booth.RemoveFirstItemFromInventory();
-				//booth.Inventory.Remove(booth.Inventory.First());
-				_view.ItemBought(customer.GetLastItem(), customer, booth);
-				booth.DailyQuota--;
-			}
+			Random randomBooth = new Random();
+			Random randomCustomer = new Random();
+			
+			MakeTransaction(booths.ElementAt(randomBooth.Next(0, booths.Count)), (Customer)customers.ElementAt(randomCustomer.Next(0, customers.Count)));
+			
 		}
 
-				
+		//public void MakeTransaction()
+		//{
+		//	MakeTransactionsOnList(_boothModel, _customerModel);
+		//}
+		
+		public void MakeTransaction(Booth booth, Customer customer)
+		{
+			lock (_lock)
+			{
+				if (booth.Inventory.Count != 0)
+				{
+					customer.BuyItem(booth);
+					booth.RemoveFirstItemFromInventory();
+					//booth.Inventory.Remove(booth.Inventory.First());
+					_view.ItemBought(customer.GetLastItem(), customer, booth);
+					booth.DailyQuota--;
+				}
+			}
+		}
 	}
 }
-
-

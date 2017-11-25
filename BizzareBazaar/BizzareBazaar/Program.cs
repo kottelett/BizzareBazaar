@@ -20,22 +20,17 @@ namespace BizzareBazaar
             Customer peasantCustomer = CustomerFactory.CreateCustomer(CustomerClass.Peasant, "PeasantCustomer");
             Customer warriorCustomer = CustomerFactory.CreateCustomer(CustomerClass.Warrior, "WarriorCustomer");
 
-            List<Person> customers = new List<Person>();
-            customers.Add(wizardCustomer);
-            customers.Add(peasantCustomer);
-            customers.Add(warriorCustomer);
+	        List<Person> customers = new List<Person> {wizardCustomer, peasantCustomer, warriorCustomer};
 
-            // Creates 1 booth with BoothNumber 1 and daily quota of 10
+	        // Creates 1 booth with BoothNumber 1 and daily quota of 10
             Booth booth1 = new Booth(5 , 0);
-            //Booth booth2 = new Booth(5, 1);
+            Booth booth2 = new Booth(5, 1);
 
-            List<Booth> boothList = new List<Booth>();
-            boothList.Add(booth1);
-			//boothList.Add(booth2);
+	        List<Booth> boothList = new List<Booth> {booth1, booth2};
 
 
 
-			// Fetches items from list in ItemProduction 
+	        // Fetches items from list in ItemProduction 
 			// ...same as : booth.SetTimerAndFetchItems(); Contains Console.WriteLine(item)
 
 
@@ -45,29 +40,23 @@ namespace BizzareBazaar
 
             
             Console.WriteLine("yep");
-
-	        //Thread[] threads = new Thread[5];
-	        
+			
 			Console.ReadKey();
             int counter = 0;
-			//for (int i = 0; i < 5; i++)
-			//{
-			//	// This is how we create new "Main" methods for each thread. 
-			//	// Here, these "Mains" are instances of the method "acc.DoTransactions"
-			//	Thread t = new Thread(new ThreadStart(controller.MakeTransaction));
-			//	threads[i] = t;
-			//}
 			while ( counter < 5) //!BoothClosed(boothList) &&
             {
                 
                 Console.WriteLine("Before");
                 controller.PutItemUpForSale(booth1);
-				//controller.PutItemUpForSale(booth2);
+				controller.PutItemUpForSale(booth2);
 
-				//threads[counter].Start();
-                //controller.MakeTransaction();
-	            controller.MakeTransaction(booth1, (Customer)customers.ElementAt(0));
-				controller.MakeTransaction(booth1, (Customer)customers.ElementAt(1));
+				////threads[counter].Start();
+    //            //controller.MakeTransaction();
+	   //         controller.MakeTransaction(booth1, (Customer)customers.ElementAt(0));
+				//controller.MakeTransaction(booth1, (Customer)customers.ElementAt(1));
+	   //         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(0));
+	   //         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(1));
+	            controller.MakeTransactionsOnList(boothList, customers);
 				Console.WriteLine("After");
 
                 counter++;
