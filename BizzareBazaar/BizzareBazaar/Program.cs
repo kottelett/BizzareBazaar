@@ -15,31 +15,28 @@ namespace BizzareBazaar
 			ItemProduction.ProduceItems();
 	        ItemProduction.SetTimerAndProduceItems();
                         
-            // Creates customer of type peasant in CustomerFactory
+            // Creates customer from CustomerFactory (Customers are waking up)
             Customer wizardCustomer = CustomerFactory.CreateCustomer(CustomerClass.Wizard, "WizardCustomer");
             Customer peasantCustomer = CustomerFactory.CreateCustomer(CustomerClass.Peasant, "PeasantCustomer");
             Customer warriorCustomer = CustomerFactory.CreateCustomer(CustomerClass.Warrior, "WarriorCustomer");
 
-	        List<Person> customers = new List<Person> {wizardCustomer, peasantCustomer, warriorCustomer};
-
-	        // Creates 1 booth with BoothNumber 1 and daily quota of 10
+	        // Booths at Bazaar preparing for a new day
             Booth booth1 = new Booth(5 , 0);
             Booth booth2 = new Booth(5, 1);
-
-	        List<Booth> boothList = new List<Booth> {booth1, booth2};
-
-
-
+			List<Booth> boothList = new List<Booth> { booth1, booth2 };
+	        
+			// The customers arrives at the Bazaar
+			List<Person> customers = new List<Person> { wizardCustomer, peasantCustomer, warriorCustomer };
+			
 	        // Fetches items from list in ItemProduction 
 			// ...same as : booth.SetTimerAndFetchItems(); Contains Console.WriteLine(item)
 
 
 			Controller controller = new Controller(customers, boothList);
-	        //DEBUG: Det er her ting går i surr 
-            controller.InitiateBoothFetch();
+	        controller.InitiateBoothFetch();
 
             
-            Console.WriteLine("yep");
+            Console.WriteLine("The Bazaar Of The Bizaare is now OPEN!");
 			
 			Console.ReadKey();
             int counter = 0;
@@ -64,6 +61,7 @@ namespace BizzareBazaar
 
             }
 
+	        Console.WriteLine("The Bazaare is now closed. Please come again tomorrow!");
             Console.ReadKey();
 
         }
