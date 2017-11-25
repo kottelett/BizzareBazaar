@@ -35,25 +35,31 @@ namespace BizzareBazaar
 			Controller controller = new Controller(customers, boothList);
 	        controller.InitiateBoothFetch();
 
-            
+            Thread[] transactionThreads = new Thread[10];
+	        for (int i = 0; i < 10; i++)
+	        {
+		        // Lamda 
+		        Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
+		        transactionThreads[i] = t;
+	        }
             Console.WriteLine("The Bazaar Of The Bizaare is now OPEN!");
 			
 			Console.ReadKey();
             int counter = 0;
-			while ( counter < 5) //!BoothClosed(boothList) &&
+			while ( counter < 10) //!BoothClosed(boothList) &&
             {
                 
                 Console.WriteLine("Before");
                 controller.PutItemUpForSale(booth1);
 				controller.PutItemUpForSale(booth2);
-
+				transactionThreads[counter].Start();
 				////threads[counter].Start();
     //            //controller.MakeTransaction();
 	   //         controller.MakeTransaction(booth1, (Customer)customers.ElementAt(0));
 				//controller.MakeTransaction(booth1, (Customer)customers.ElementAt(1));
 	   //         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(0));
 	   //         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(1));
-	            controller.MakeTransactionsOnList(boothList, customers);
+	            //controller.MakeTransactionsOnList(boothList, customers);
 				Console.WriteLine("After");
 
                 counter++;
