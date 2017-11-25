@@ -36,7 +36,7 @@ namespace BizzareBazaar
 
 	    public virtual string GetDescription()
 	    {
-	        return "HMM";
+	        return "Person.GetDescription: A basic, boring person";
 	    }
 
 

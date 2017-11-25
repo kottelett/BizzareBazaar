@@ -13,7 +13,7 @@ namespace BizzareBazaar
         private static Timer _timer;
 	    public static List<IItem> Storage { get; set; } = new List<IItem>();
         private static int _itemNumber;
-
+		
 		
 
         public void PrintStorage()
@@ -38,7 +38,7 @@ namespace BizzareBazaar
         // Triggers OnTimedEvent every 1000 ms
 	    public static void SetTimerAndProduceItems()
         {
-	        _timer = new Timer {Interval = 500};
+	        _timer = new Timer {Interval = 200};
 	        _timer.Elapsed += OnTimedEvent;
             _timer.AutoReset = true;
             _timer.Enabled = true;
@@ -47,11 +47,34 @@ namespace BizzareBazaar
 
         public static void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            ItemCreator item = new ItemCreator();
-            Storage.Add(item.CreateRndItem(_itemNumber));
-            _itemNumber++;
+	        if (_itemNumber < 100)
+	        {
+		        ProduceItems();
+		        //ItemCreator item = new ItemCreator();
+		        //Storage.Add(item.CreateRndItem(_itemNumber));
+		        //_itemNumber++;
+			}
+	        else
+	        {
+		        _timer.Stop();
+		        _timer.Dispose();
+	        }
 
         }
+
+	    public static void ProduceItems()
+	    {
+			ItemCreator item = new ItemCreator();
+		    Storage.Add(item.CreateRndItem(_itemNumber));
+		    _itemNumber++;
+		}
+	    private bool stopProduction()
+	    {
+		    if (_itemNumber > 100)
+				return true;
+		    
+		    return false;
+	    }
 
     }
 }

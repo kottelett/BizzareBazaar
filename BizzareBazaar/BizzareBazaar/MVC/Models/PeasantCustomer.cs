@@ -34,7 +34,7 @@ namespace BizzareBazaar
 	    }*/
 	    public override void PrintBoothNumber()
 	    {
-		    Console.Write(CustomerGroup.ToString()); // customergroup?
+		    Console.Write(CustomerGroup); // customergroup?
 	    }
 
     }

@@ -10,13 +10,13 @@ namespace BizzareBazaar
 
 	    public int DailyQuota { get; set; }
 
-	    public int InventoryMaxSize = 5;
+	   // public int InventoryMaxSize = 5;
 
 		public List<IItem> Inventory { get; set; } = new List<IItem>();
 
 		public int BoothNumber { get; set; }
 
-		private readonly Timer Timer = new Timer { Interval = 1000}; // Muligens ok for global
+		private readonly Timer Timer = new Timer { Interval = 500}; 
 
 	    public bool SoldQuota = false;
 
@@ -31,7 +31,7 @@ namespace BizzareBazaar
 
 		public IItem GetFirstItem()
 		{
-			return Inventory.FirstOrDefault();
+			return Inventory.First();
 		}
 		public void AddOneItemToInventory(IItem item)
 		{
@@ -46,6 +46,7 @@ namespace BizzareBazaar
 		public void RemoveFirstItemFromInventory() // Finnes egen metoder for det i list
 		{
 			Inventory.RemoveAt(0);
+			//Inventory.Remove(Inventory.First());
 		}
 
 		public void SetTimerAndFetchItems()
@@ -59,11 +60,11 @@ namespace BizzareBazaar
 		public void FetchFirstItem()
 		{
 
-            if (Inventory.Count <= InventoryMaxSize && ItemProduction.Storage.Count != 0 )
+            if (ItemProduction.Storage.Count != 0 )//Inventory.Count <= InventoryMaxSize && 
             {
-		        IItem item = ItemProduction.Storage.First();
-		        Inventory.Add(item);
-		        ItemProduction.Storage.Remove(item);
+		        //IItem item = ItemProduction.Storage.First();
+		        Inventory.Add(ItemProduction.Storage.First());
+		        ItemProduction.Storage.Remove(ItemProduction.Storage.First());
 		       // PrintItem(item);
                 DailyQuota--;
 	            //DEBUG

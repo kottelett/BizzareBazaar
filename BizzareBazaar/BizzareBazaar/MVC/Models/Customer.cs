@@ -19,9 +19,9 @@ namespace BizzareBazaar
 		{
 			if(booth.Inventory.Count != 0)
 			{ 
-			    IItem item = booth.Inventory.First();
-			    Inventory.Add(item);
-			    booth.Inventory.Remove(item);
+			    //IItem item = booth.Inventory.First();
+			    Inventory.Add(booth.Inventory.First());
+			    //booth.Inventory.Remove(booth.Inventory.First());
 			}
 		}
 
@@ -66,6 +66,11 @@ namespace BizzareBazaar
 	    {
 	        return CustomerGroup;
 	    }
+
+		public IItem GetLastItem()
+		{
+			return Inventory.Last();
+		}
 
 
 
