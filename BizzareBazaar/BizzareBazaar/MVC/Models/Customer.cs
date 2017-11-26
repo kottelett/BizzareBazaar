@@ -30,8 +30,8 @@ namespace BizzareBazaar
 		{
 			return CustomerGroup;
 		}
-
-
+		
+		
 		public virtual void ShowInventory()
 		{
 			foreach (var item in Inventory)
