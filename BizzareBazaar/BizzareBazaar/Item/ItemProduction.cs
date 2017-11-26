@@ -48,7 +48,7 @@ namespace BizzareBazaar
 
         public static void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-	        if (_itemNumber < 100)
+	        if (!StopProduction())
 	        {
 		        ProduceItems();
 		        //ItemCreator item = new ItemCreator();
@@ -69,7 +69,7 @@ namespace BizzareBazaar
 		    Storage.Add(item.CreateRndItem(_itemNumber));
 		    _itemNumber++;
 		}
-	    private bool stopProduction()
+	    private static bool StopProduction()
 	    {
 		    if (_itemNumber > 100)
 				return true;

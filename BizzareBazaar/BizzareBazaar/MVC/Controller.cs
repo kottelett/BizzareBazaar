@@ -8,8 +8,8 @@ namespace BizzareBazaar
 {
 	class Controller
 	{
-		private readonly List<Person> _customerModel;
-		private readonly List<Booth> _boothModel;
+		//private readonly List<Person> _customerModel;
+		//private readonly List<Booth> _boothModel;
 		private readonly View _view;
 		private readonly Object _lock = new Object();
 
@@ -22,18 +22,18 @@ namespace BizzareBazaar
 		//	_view = new View();
 		//} 
 
-		public Controller(List<Person> customers, List<Booth> booths)
+		public Controller()
 		{
-			_customerModel = customers;
-			_boothModel = booths;
+			//_customerModel = customers;
+			//_boothModel = booths;
 
 			_view = new View();
 		}
 
 
-		public void InitiateBoothFetch()
+		public void InitiateBoothFetch(List<Booth> boothModel)
 		{
-			foreach (var booth in _boothModel)
+			foreach (var booth in boothModel)
 			{
 				booth.SetTimerAndFetchItems();
 			}
@@ -49,7 +49,10 @@ namespace BizzareBazaar
 			if (booth.Inventory.Count != 0)
 			{
 				IItem item = booth.Inventory.First();
-				_view.ItemForSale(item, booth);
+				lock (_lock)
+				{
+					_view.ItemForSale(item, booth);
+				}
 			}
 		}
 
@@ -101,11 +104,6 @@ namespace BizzareBazaar
 			MakeTransaction(booths.ElementAt(randomBooth.Next(0, booths.Count)), (Customer)customers.ElementAt(randomCustomer.Next(0, customers.Count)));
 			
 		}
-
-		//public void MakeTransaction()
-		//{
-		//	MakeTransactionsOnList(_boothModel, _customerModel);
-		//}
 		
 		public void MakeTransaction(Booth booth, Customer customer)
 		{
