@@ -8,14 +8,14 @@ namespace BizzareBazaar
 	class Booth : IManipulateInventory
 	{
 
-	    public int DailyQuota { get; set; }
+	   public int DailyQuota { get; set; }
 
 	   public List<IItem> Inventory { get; set; } = new List<IItem>();
 		
 
 		public int BoothNumber { get; set; }
 
-		private readonly Timer Timer = new Timer { Interval = 500}; 
+		private readonly Timer _timer = new Timer { Interval = 500}; 
 
 	    public bool SoldQuota = false;
 
@@ -50,40 +50,37 @@ namespace BizzareBazaar
 
 		public void SetTimerAndFetchItems()
 		{
-			Timer.Elapsed += OnTimedEvent;
-			Timer.AutoReset = true;
-			Timer.Enabled = true;
+			_timer.Elapsed += OnTimedEvent;
+			_timer.AutoReset = true;
+			_timer.Enabled = true;
 
 		}
 
 		public void FetchFirstItem()
 		{
 
-            if (ItemProduction.Storage.Count != 0 )//Inventory.Count <= InventoryMaxSize && 
+            if (Singleton.Inventory.Count != 0 )//Inventory.Count <= InventoryMaxSize && 
             {
 		        //IItem item = ItemProduction.Storage.First();
-		        Inventory.Add(ItemProduction.Storage.First());
-		        ItemProduction.Storage.Remove(ItemProduction.Storage.First());
+		        Inventory.Add(Singleton.Inventory.First());
+	            Singleton.Inventory.Remove(Singleton.Inventory.First());
 		       // PrintItem(item);
-                DailyQuota--;
 	            //DEBUG
               Console.WriteLine("Booth" + BoothNumber + " daily quota: " + DailyQuota);
             }
             
 		    if (DailyQuota <= 0)
 		    {
-		        Timer.Stop();
-			    //DEBUG
-		        Console.WriteLine("DEBUG: Timer stopped at booth " + BoothNumber);
+		        _timer.Stop();
+				_timer.Dispose();
+				//DEBUG
+				Console.WriteLine("DEBUG: Timer stopped at booth " + BoothNumber);
 		    }
 		}
 
-
-		
-
 		public void OnTimedEvent(Object source, ElapsedEventArgs e)
 		{
-			if (ItemProduction.Storage.Count != 0 && DailyQuota > 0)
+			if (Singleton.Inventory.Count != 0 && DailyQuota > 0)
 			{
 				FetchFirstItem();
 			}
@@ -92,9 +89,9 @@ namespace BizzareBazaar
         //tråd 
 	    public IItem ItemUpForSale()
 	    {
-	        IItem item = Inventory.First();
+	        //IItem item = Inventory.First();
 
-	        return item;
+		    return Inventory.First();
 	    }
 
 

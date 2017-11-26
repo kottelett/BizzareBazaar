@@ -12,7 +12,7 @@ namespace BizzareBazaar
         public static void Main(string[] args)
         {
 			//PRODUCES ITEM IN ITEMPRODUCTION EVERY SECOND | Stores ALL items in ItemProduction until fetched by booth
-			ItemProduction.ProduceItems();
+			ItemProduction.ProduceItem();
 	        ItemProduction.SetTimerAndProduceItems();
                         
             // Creates customer from CustomerFactory (Customers are waking up from a good night sleep)
@@ -32,55 +32,75 @@ namespace BizzareBazaar
 	        // The Booths at the Bazaar begins to get items from the supplier
 	        controller.InitiateBoothFetch(boothList);
 
-            Thread[] transactionThreads = new Thread[10];
-	        //for (int i = 0; i < 10; i++)
-	        //{
-		       // // Lamda 
-		       // Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
-		       // transactionThreads[i] = t;
-	        //}
-            Console.WriteLine("The Bazaar Of The Bizaare is now OPEN!");
+			//Thread[] transactionThreads = new Thread[5];
+			Thread[] itemForSaleThread = new Thread[boothList.Count];
+	        
+
+			//for (int i = 0; i < 5; i++)
+			//{
+			//	// Lamda 
+			//	Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
+			//	transactionThreads[i] = t;
+			//}
+
+			Console.WriteLine("The Bazaar Of The Bizaare is now OPEN!");
 			
-			//Console.ReadKey();
+			Console.ReadKey();
             //int counter = 0;
 			while ( !BoothClosed(boothList) ) //!BoothClosed(boothList) &&
-            {
-                //Console.WriteLine("Before");
+			{
 
-	            foreach (var booth in boothList)
-	            {
-		            controller.PutItemUpForSale(booth);
-	            }
-	            
-				for (int i = 0; i < transactionThreads.Length; i++)
+				for (int i = 0; i < itemForSaleThread.Length; i++)
 				{
-					// Lamda 
-					Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
-					transactionThreads[i] = t;
-				}
 
-				foreach (var transaction in transactionThreads)
-	            {
-		            transaction.Start();
-	            }
+						Thread th = new Thread(() => new Thread(() => controller.PutItemUpForSale(boothList.ElementAt(i))));
+						itemForSaleThread[i] = th;
+						
+
+				}
+					//Console.WriteLine("Before");
+
+					//controller.MakeTransactionsOnList(boothList, customers);
+
+					Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
+					t.Start();
+				//foreach (var booth in boothList)
+				//{
+				//	controller.PutItemUpForSale(booth);
+				//}
+
+				//for (int i = 0; i < transactionThreads.Length; i++)
+				//{
+				//	// Lamda 
+				//	Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
+				//	transactionThreads[i] = t;
+				//	transactionThreads[i].Start();
+				//}
+
+				foreach (var booth in itemForSaleThread)
+				{
+					booth.Start();
+				}
+				//foreach (var transaction in transactionThreads)
+				//{
+				//	transaction.Start();
+				//}
 				//transactionThreads[counter].Start();
 				////threads[counter].Start();
-    //            //controller.MakeTransaction();
-	   //         controller.MakeTransaction(booth1, (Customer)customers.ElementAt(0));
+				//            //controller.MakeTransaction();
+				//         controller.MakeTransaction(booth1, (Customer)customers.ElementAt(0));
 				//controller.MakeTransaction(booth1, (Customer)customers.ElementAt(1));
-	   //         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(0));
-	   //         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(1));
-	            //controller.MakeTransactionsOnList(boothList, customers);
+				//         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(0));
+				//         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(1));
+				//controller.MakeTransactionsOnList(boothList, customers);
 				//Console.WriteLine("After");
 
-                //counter++;
-
-
-            }
+				//counter++;
+				t.Join();
+			}
 
 	        Console.WriteLine("The Bazaare is now closed. Please come again tomorrow!");
             Console.ReadKey();
-
         }
 
         public static bool BoothClosed(List<Booth> boothList)
