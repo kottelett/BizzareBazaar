@@ -1,91 +1,88 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 
 
 namespace BizzareBazaar
 {
-    class Program
-    {
-        public static void Main(string[] args)
-        {
+	class Program
+	{
+		public static void Main(string[] args)
+		{
 			//PRODUCES ITEM IN ITEMPRODUCTION EVERY SECOND | Stores ALL items in ItemProduction until fetched by booth
-			ItemProduction.ProduceItems();
-	        ItemProduction.SetTimerAndProduceItems();
-                        
-            // Creates customer from CustomerFactory (Customers are waking up)
-            Customer wizardCustomer = CustomerFactory.CreateCustomer(CustomerClass.Wizard, "WizardCustomer");
-            Customer peasantCustomer = CustomerFactory.CreateCustomer(CustomerClass.Peasant, "PeasantCustomer");
-            Customer warriorCustomer = CustomerFactory.CreateCustomer(CustomerClass.Warrior, "WarriorCustomer");
+			ItemProduction.ProduceItem();
+			ItemProduction.SetTimerAndProduceItems();
 
-	        // Booths at Bazaar preparing for a new day
-            Booth booth1 = new Booth(5 , 0);
-            Booth booth2 = new Booth(5, 1);
-			List<Booth> boothList = new List<Booth> { booth1, booth2 };
-	        
+			// Creates customer from CustomerFactory (Customers are waking up from a good night sleep)
+			Customer wizardCustomer = CustomerFactory.CreateCustomer(CustomerClass.Wizard, "WizardCustomer");
+			Customer peasantCustomer = CustomerFactory.CreateCustomer(CustomerClass.Peasant, "PeasantCustomer");
+			Customer warriorCustomer = CustomerFactory.CreateCustomer(CustomerClass.Warrior, "WarriorCustomer");
+
+			// Booths at Bazaar preparing for a new day
+			Booth booth1 = new Booth(10, 0);
+			Booth booth2 = new Booth(5, 1);
+			List<Booth> boothList = new List<Booth> {booth1, booth2};
+
 			// The customers arrives at the Bazaar
-			List<Person> customers = new List<Person> { wizardCustomer, peasantCustomer, warriorCustomer };
-			
-	        // Fetches items from list in ItemProduction 
-			// ...same as : booth.SetTimerAndFetchItems(); Contains Console.WriteLine(item)
+			List<Person> customers = new List<Person> {wizardCustomer, peasantCustomer, warriorCustomer};
+
+			Controller controller = new Controller();
+			// The Booths at the Bazaar begins to get items from the supplier
+			controller.InitiateBoothFetch(boothList);
+
+			Thread[] itemForSaleThread = new Thread[boothList.Count];
 
 
-			Controller controller = new Controller(customers, boothList);
-	        controller.InitiateBoothFetch();
+<<<<<<< HEAD
+            //for (int i = 0; i < 5; i++)
+            //{
+            //	// Lamda 
+            //	Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
+            //	transactionThreads[i] = t;
+            //}
 
-            Thread[] transactionThreads = new Thread[10];
-	        for (int i = 0; i < 10; i++)
-	        {
-		        // Lamda 
-		        Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
-		        transactionThreads[i] = t;
-	        }
+         
             Console.WriteLine("The Bazaar Of The Bizaare is now OPEN!");
-			
+=======
+			Console.WriteLine("The Bazaar Of The Bizaare is now OPEN!");
+			Console.WriteLine("Press any key to start shopping");
+>>>>>>> e0600c9f5aa31cc5ab4ed556b64a6e7ec3e3292d
 			Console.ReadKey();
-            int counter = 0;
-			while ( counter < 10) //!BoothClosed(boothList) &&
-            {
-                
-                Console.WriteLine("Before");
-                controller.PutItemUpForSale(booth1);
-				controller.PutItemUpForSale(booth2);
-				transactionThreads[counter].Start();
-				////threads[counter].Start();
-    //            //controller.MakeTransaction();
-	   //         controller.MakeTransaction(booth1, (Customer)customers.ElementAt(0));
-				//controller.MakeTransaction(booth1, (Customer)customers.ElementAt(1));
-	   //         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(0));
-	   //         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(1));
-	            //controller.MakeTransactionsOnList(boothList, customers);
-				Console.WriteLine("After");
 
-                counter++;
+			while (!BoothClosed(boothList))
+			{
+				for (int i = 0; i < itemForSaleThread.Length; i++)
+				{
+					Thread th = new Thread(() => new Thread(() => controller.PutItemUpForSale(boothList.ElementAt(i))));
+					itemForSaleThread[i] = th;
+					th.Start();
+				}
+				//foreach (var booth in boothList)
+				//{
+				//	controller.PutItemUpForSale(booth);
+				//}
+				Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
+				t.Start();
 
 
-            }
+				t.Join();
+			}
 
-	        Console.WriteLine("The Bazaare is now closed. Please come again tomorrow!");
-            Console.ReadKey();
+			Console.WriteLine("The Bazaare is now closed. Please come again tomorrow!");
+			Console.ReadKey();
+		}
 
-        }
-
-        public static bool BoothClosed(List<Booth> booth)
-        {
-            for (int i = 0; i < booth.Count; i++)
-            {
-                if (booth.ElementAt(i).SoldQuota == false)
-                {
-                    return false;
-                }
-            }
-            return true;
-
-
-        }
-
-
-    }
+		public static bool BoothClosed(List<Booth> boothList)
+		{
+			for (int i = 0; i < boothList.Count; i++)
+			{
+				if (boothList.ElementAt(i).DailyQuota > 0)
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+	}
 }

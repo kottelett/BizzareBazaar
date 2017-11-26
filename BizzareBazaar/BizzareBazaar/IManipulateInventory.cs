@@ -8,7 +8,7 @@ namespace BizzareBazaar
 {
 	interface IManipulateInventory
 	{
-		List<IItem> Inventory { get; set; }
+		List<IItem> Inventory {get; set;}
 		IItem GetFirstItem();
 		void AddOneItemToInventory(IItem item);
 		void AddItemsToInventory(List<IItem> itemList);
