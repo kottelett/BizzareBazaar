@@ -15,44 +15,55 @@ namespace BizzareBazaar
 			ItemProduction.ProduceItems();
 	        ItemProduction.SetTimerAndProduceItems();
                         
-            // Creates customer from CustomerFactory (Customers are waking up)
+            // Creates customer from CustomerFactory (Customers are waking up from a good night sleep)
             Customer wizardCustomer = CustomerFactory.CreateCustomer(CustomerClass.Wizard, "WizardCustomer");
             Customer peasantCustomer = CustomerFactory.CreateCustomer(CustomerClass.Peasant, "PeasantCustomer");
             Customer warriorCustomer = CustomerFactory.CreateCustomer(CustomerClass.Warrior, "WarriorCustomer");
 
 	        // Booths at Bazaar preparing for a new day
-            Booth booth1 = new Booth(5 , 0);
+            Booth booth1 = new Booth(10 , 0);
             Booth booth2 = new Booth(5, 1);
 			List<Booth> boothList = new List<Booth> { booth1, booth2 };
 	        
 			// The customers arrives at the Bazaar
 			List<Person> customers = new List<Person> { wizardCustomer, peasantCustomer, warriorCustomer };
 			
-	        // Fetches items from list in ItemProduction 
-			// ...same as : booth.SetTimerAndFetchItems(); Contains Console.WriteLine(item)
-
-
-			Controller controller = new Controller(customers, boothList);
-	        controller.InitiateBoothFetch();
+			Controller controller = new Controller();
+	        // The Booths at the Bazaar begins to get items from the supplier
+	        controller.InitiateBoothFetch(boothList);
 
             Thread[] transactionThreads = new Thread[10];
-	        for (int i = 0; i < 10; i++)
-	        {
-		        // Lamda 
-		        Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
-		        transactionThreads[i] = t;
-	        }
+	        //for (int i = 0; i < 10; i++)
+	        //{
+		       // // Lamda 
+		       // Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
+		       // transactionThreads[i] = t;
+	        //}
             Console.WriteLine("The Bazaar Of The Bizaare is now OPEN!");
 			
-			Console.ReadKey();
-            int counter = 0;
-			while ( counter < 10) //!BoothClosed(boothList) &&
+			//Console.ReadKey();
+            //int counter = 0;
+			while ( !BoothClosed(boothList) ) //!BoothClosed(boothList) &&
             {
-                
-                Console.WriteLine("Before");
-                controller.PutItemUpForSale(booth1);
-				controller.PutItemUpForSale(booth2);
-				transactionThreads[counter].Start();
+                //Console.WriteLine("Before");
+
+	            foreach (var booth in boothList)
+	            {
+		            controller.PutItemUpForSale(booth);
+	            }
+	            
+				for (int i = 0; i < transactionThreads.Length; i++)
+				{
+					// Lamda 
+					Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
+					transactionThreads[i] = t;
+				}
+
+				foreach (var transaction in transactionThreads)
+	            {
+		            transaction.Start();
+	            }
+				//transactionThreads[counter].Start();
 				////threads[counter].Start();
     //            //controller.MakeTransaction();
 	   //         controller.MakeTransaction(booth1, (Customer)customers.ElementAt(0));
@@ -60,9 +71,9 @@ namespace BizzareBazaar
 	   //         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(0));
 	   //         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(1));
 	            //controller.MakeTransactionsOnList(boothList, customers);
-				Console.WriteLine("After");
+				//Console.WriteLine("After");
 
-                counter++;
+                //counter++;
 
 
             }
@@ -72,11 +83,11 @@ namespace BizzareBazaar
 
         }
 
-        public static bool BoothClosed(List<Booth> booth)
+        public static bool BoothClosed(List<Booth> boothList)
         {
-            for (int i = 0; i < booth.Count; i++)
+	        for (int i = 0; i < boothList.Count; i++)
             {
-                if (booth.ElementAt(i).SoldQuota == false)
+                if (boothList.ElementAt(i).DailyQuota > 0)
                 {
                     return false;
                 }
