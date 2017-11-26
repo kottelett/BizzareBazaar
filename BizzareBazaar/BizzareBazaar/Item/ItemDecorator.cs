@@ -1,33 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BizzareBazaar
+﻿namespace BizzareBazaar
 {
-    abstract class ItemDecorator : IItem
-    {
-        private readonly IItem _originalItem;
+	abstract class ItemDecorator : IItem
+	{
+		private readonly IItem _originalItem;
 
-        protected ItemDecorator(IItem item)
-        {
-            _originalItem = item;
-        }
+		protected ItemDecorator(IItem item)
+		{
+			_originalItem = item;
+		}
 
-        public virtual double GetPrice()
-        {
-            return _originalItem.GetPrice();
-        }
+		public virtual double GetPrice()
+		{
+			return _originalItem.GetPrice();
+		}
 
-        public virtual string GetDescription()
-        {
-            return _originalItem.GetDescription();
-        }
+		public virtual string GetDescription()
+		{
+			return _originalItem.GetDescription();
+		}
 
-        public virtual int GetItemNumber()
-        {
-            return _originalItem.GetItemNumber();
-        }
-    }
+		public virtual int GetItemNumber()
+		{
+			return _originalItem.GetItemNumber();
+		}
+	}
 }

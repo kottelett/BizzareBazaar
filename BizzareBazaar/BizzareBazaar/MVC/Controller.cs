@@ -1,32 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
-
 
 namespace BizzareBazaar
 {
 	class Controller
 	{
-		//private readonly List<Person> _customerModel;
-		//private readonly List<Booth> _boothModel;
 		private readonly View _view;
 		private readonly Object _lock = new Object();
 
-
-		//public Controller(Customer customer, Booth booth)
-		//{
-		//	_customerModel = customer;
-		//	_boothModel = booth;
-
-		//	_view = new View();
-		//} 
-
 		public Controller()
 		{
-			//_customerModel = customers;
-			//_boothModel = booths;
-
 			_view = new View();
 		}
 
@@ -37,10 +21,6 @@ namespace BizzareBazaar
 			{
 				booth.SetTimerAndFetchItems();
 			}
-			//for (int i = 0; i < _boothModel.Count; i++)
-			//{
-			//    _boothModel.ElementAt(i).SetTimerAndFetchItems();
-			//}
 		}
 
 
@@ -51,12 +31,12 @@ namespace BizzareBazaar
 				lock (_lock)
 				{
 					IItem item = booth.Inventory.First();
-				
+
 					_view.ItemForSale(item, booth);
 				}
 			}
 		}
-		
+
 		public void MakeTransactionsOnList(List<Booth> booths, List<Person> customers)
 		{
 			Random randomBooth = new Random();
@@ -67,22 +47,19 @@ namespace BizzareBazaar
 					(Customer) customers.ElementAt(randomCustomer.Next(0, customers.Count)));
 			}
 		}
-		
+
 		public void MakeTransaction(Booth booth, Customer customer)
 		{
-			
-				if (booth.Inventory.Count != 0)
+			if (booth.Inventory.Count != 0)
+			{
+				customer.BuyItem(booth);
+				booth.RemoveFirstItemFromInventory();
+				lock (_lock)
 				{
-					customer.BuyItem(booth);
-					booth.RemoveFirstItemFromInventory();
-					//booth.Inventory.Remove(booth.Inventory.First());
-					lock (_lock)
-					{
-						_view.ItemBought(customer.GetLastItem(), customer, booth);
-					}
-					booth.DailyQuota--;
+					_view.ItemBought(customer.GetLastItem(), customer, booth);
 				}
-			
+				booth.DailyQuota--;
+			}
 		}
 	}
 }
