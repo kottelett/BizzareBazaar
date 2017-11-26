@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 
@@ -54,7 +53,6 @@ namespace BizzareBazaar
 	            
 				for (int i = 0; i < transactionThreads.Length; i++)
 				{
-					// Lamda 
 					Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
 					transactionThreads[i] = t;
 				}
@@ -65,11 +63,11 @@ namespace BizzareBazaar
 	            }
 				//transactionThreads[counter].Start();
 				////threads[counter].Start();
-    //            //controller.MakeTransaction();
-	   //         controller.MakeTransaction(booth1, (Customer)customers.ElementAt(0));
+                //controller.MakeTransaction();
+	            //controller.MakeTransaction(booth1, (Customer)customers.ElementAt(0));
 				//controller.MakeTransaction(booth1, (Customer)customers.ElementAt(1));
-	   //         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(0));
-	   //         controller.MakeTransaction(booth2, (Customer)customers.ElementAt(1));
+	            //controller.MakeTransaction(booth2, (Customer)customers.ElementAt(0));
+	            //controller.MakeTransaction(booth2, (Customer)customers.ElementAt(1));
 	            //controller.MakeTransactionsOnList(boothList, customers);
 				//Console.WriteLine("After");
 
