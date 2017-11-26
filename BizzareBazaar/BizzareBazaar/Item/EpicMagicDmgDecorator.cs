@@ -15,7 +15,7 @@ namespace BizzareBazaar
 
         public override string GetDescription()
         {
-            return base.GetDescription() + " | EPIC magic damage";
+            return base.GetDescription() + " with EPIC magic damage";
         }
 
         public override double GetPrice()

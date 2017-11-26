@@ -15,7 +15,7 @@ namespace BizzareBazaar
 
         public override string GetDescription()
         {
-            return base.GetDescription() + " | Greater Stribog runestone";
+            return base.GetDescription() + " with Greater Stribog runestone";
         }
 
         public override double GetPrice()

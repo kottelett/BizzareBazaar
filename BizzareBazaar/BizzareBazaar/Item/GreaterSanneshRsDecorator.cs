@@ -15,7 +15,7 @@ namespace BizzareBazaar
 
         public override string GetDescription()
         {
-            return base.GetDescription() + " | Greater Sannesh Runestone(Kel`Thuzad quest item ;)";
+            return base.GetDescription() + " with Greater Sannesh Runestone(Kel`Thuzad quest item ;)";
         }
 
         public override double GetPrice()

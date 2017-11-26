@@ -15,7 +15,7 @@ namespace BizzareBazaar
 
         public override string GetDescription()
         { 
-            return base.GetDescription() + " | Sannnesh Runestone(Ragnaros quest item)";
+            return base.GetDescription() + " with Sannnesh Runestone(Ragnaros quest item)";
         }
 
         public override double GetPrice()

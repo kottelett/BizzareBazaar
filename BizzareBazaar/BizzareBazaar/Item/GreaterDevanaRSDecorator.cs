@@ -15,7 +15,7 @@ namespace BizzareBazaar
 
         public override string GetDescription()
         {
-            return base.GetDescription() + " | Greater Devana Runestone";
+            return base.GetDescription() + " with Greater Devana Runestone";
         }
 
         public override double GetPrice()
