@@ -20,7 +20,7 @@ namespace BizzareBazaar
             Customer peasantCustomer = CustomerFactory.CreateCustomer(CustomerClass.Peasant, "PeasantCustomer");
             Customer warriorCustomer = CustomerFactory.CreateCustomer(CustomerClass.Warrior, "WarriorCustomer");
 
-	        // Booths at Bazaar preparing for a new day
+	        // Booths at Bazaar preparing for a new day. Parameters is max daily sales and boothNumber.
             Booth booth1 = new Booth(10 , 0);
             Booth booth2 = new Booth(5, 1);
 			List<Booth> boothList = new List<Booth> { booth1, booth2 };
