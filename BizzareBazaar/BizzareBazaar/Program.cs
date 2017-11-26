@@ -34,17 +34,17 @@ namespace BizzareBazaar
 
 			//Thread[] transactionThreads = new Thread[5];
 			Thread[] itemForSaleThread = new Thread[boothList.Count];
-	        
 
-			//for (int i = 0; i < 5; i++)
-			//{
-			//	// Lamda 
-			//	Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
-			//	transactionThreads[i] = t;
-			//}
 
-			Console.WriteLine("The Bazaar Of The Bizaare is now OPEN!");
-			
+            //for (int i = 0; i < 5; i++)
+            //{
+            //	// Lamda 
+            //	Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
+            //	transactionThreads[i] = t;
+            //}
+
+         
+            Console.WriteLine("The Bazaar Of The Bizaare is now OPEN!");
 			Console.ReadKey();
             //int counter = 0;
 			while ( !BoothClosed(boothList) ) //!BoothClosed(boothList) &&
