@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BizzareBazaar
 {
 	public sealed class Singleton
 	{
 		private static volatile Singleton _instance;
-		private static readonly object Lock = new object();
+		private static readonly Object Lock = new Object();
 
 		public static List<IItem> Inventory { get; set; } = new List<IItem>();
 
