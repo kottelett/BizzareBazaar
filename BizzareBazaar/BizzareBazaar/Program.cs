@@ -53,6 +53,7 @@ namespace BizzareBazaar
 	            
 				for (int i = 0; i < transactionThreads.Length; i++)
 				{
+					// Lambda 
 					Thread t = new Thread(() => controller.MakeTransactionsOnList(boothList, customers));
 					transactionThreads[i] = t;
 				}
