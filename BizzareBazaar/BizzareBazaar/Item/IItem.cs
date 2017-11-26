@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BizzareBazaar
 {
-    interface IItem
+   public interface IItem
     {
         double GetPrice();
 

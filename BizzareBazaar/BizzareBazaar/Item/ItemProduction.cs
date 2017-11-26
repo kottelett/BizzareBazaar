@@ -11,7 +11,8 @@ namespace BizzareBazaar
     class ItemProduction
     {
         private static Timer _timer;
-	    public static List<IItem> Storage { get; set; } = new List<IItem>();
+	    //public static List<IItem> Storage { get; set; } = new List<IItem>();
+	    public static List<IItem> Storage = Singleton.Inventory;
         private static int _itemNumber;
 		
 		

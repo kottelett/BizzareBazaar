@@ -10,9 +10,8 @@ namespace BizzareBazaar
 
 	    public int DailyQuota { get; set; }
 
-	   // public int InventoryMaxSize = 5;
-
-		public List<IItem> Inventory { get; set; } = new List<IItem>();
+	   public List<IItem> Inventory { get; set; } = new List<IItem>();
+		
 
 		public int BoothNumber { get; set; }
 

@@ -93,7 +93,7 @@ namespace BizzareBazaar
 
 		//    }
 		//} 
-		public void MakeTransactionsOnList(List<Booth> booths, List<Person> customers, int numberOfTransactions = 5)
+		public void MakeTransactionsOnList(List<Booth> booths, List<Person> customers)
 		{
 			Random randomBooth = new Random();
 			Random randomCustomer = new Random();
