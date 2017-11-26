@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BizzareBazaar
+﻿namespace BizzareBazaar
 {
-   public interface IItem
-    {
-        double GetPrice();
+	public interface IItem
+	{
+		double GetPrice();
 
-        string GetDescription();
+		string GetDescription();
 
-        int GetItemNumber();
-    }
+		int GetItemNumber();
+	}
 }

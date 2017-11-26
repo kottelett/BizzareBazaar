@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BizzareBazaar
 {
@@ -15,7 +11,6 @@ namespace BizzareBazaar
 
 		private Singleton()
 		{
-			
 		}
 
 		public static Singleton Instance
@@ -26,7 +21,7 @@ namespace BizzareBazaar
 				{
 					lock (Lock)
 					{
-						if(_instance == null)
+						if (_instance == null)
 							_instance = new Singleton();
 					}
 				}

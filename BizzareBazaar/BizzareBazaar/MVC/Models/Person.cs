@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BizzareBazaar
 {
 	internal abstract class Person : IManipulateInventory
 	{
 		public List<IItem> Inventory { get; set; } = new List<IItem>();
-		
+
 		protected Person()
 		{
 		}
@@ -19,6 +15,7 @@ namespace BizzareBazaar
 		{
 			return Inventory.FirstOrDefault();
 		}
+
 		public void AddOneItemToInventory(IItem item)
 		{
 			Inventory.Add(item);
@@ -29,18 +26,17 @@ namespace BizzareBazaar
 			Inventory.AddRange(itemList);
 		}
 
-		public void RemoveFirstItemFromInventory() // Finnes egen metoder for det i list
+		public void RemoveFirstItemFromInventory()
 		{
 			Inventory.RemoveAt(0);
 		}
 
-	    public virtual string GetDescription()
-	    {
-	        return "Person.GetDescription: A basic, boring person";
-	    }
+		public virtual string GetDescription()
+		{
+			return "Person.GetDescription: A basic, boring person";
+		}
 
 
-	    public abstract void PrintBoothNumber();
-
+		public abstract void PrintBoothNumber();
 	}
 }

@@ -7,18 +7,16 @@ namespace BizzareBazaar
 {
 	class Booth : IManipulateInventory
 	{
+		public int DailyQuota { get; set; }
 
-	   public int DailyQuota { get; set; }
+		public List<IItem> Inventory { get; set; } = new List<IItem>();
 
-	   public List<IItem> Inventory { get; set; } = new List<IItem>();
-		
 
 		public int BoothNumber { get; set; }
 
-		private readonly Timer _timer = new Timer { Interval = 500}; 
+		private readonly Timer _timer = new Timer {Interval = 500};
 
-	    public bool SoldQuota = false;
-
+		public bool SoldQuota = false;
 
 
 		public Booth(int quota, int boothNumber)
@@ -32,6 +30,7 @@ namespace BizzareBazaar
 		{
 			return Inventory.First();
 		}
+
 		public void AddOneItemToInventory(IItem item)
 		{
 			Inventory.Add(item);
@@ -42,10 +41,9 @@ namespace BizzareBazaar
 			Inventory.AddRange(itemList);
 		}
 
-		public void RemoveFirstItemFromInventory() // Finnes egen metoder for det i list
+		public void RemoveFirstItemFromInventory()
 		{
 			Inventory.RemoveAt(0);
-			//Inventory.Remove(Inventory.First());
 		}
 
 		public void SetTimerAndFetchItems()
@@ -53,29 +51,21 @@ namespace BizzareBazaar
 			_timer.Elapsed += OnTimedEvent;
 			_timer.AutoReset = true;
 			_timer.Enabled = true;
-
 		}
 
 		public void FetchFirstItem()
 		{
+			if (Singleton.Inventory.Count != 0)
+			{
+				Inventory.Add(Singleton.Inventory.First());
+				Singleton.Inventory.Remove(Singleton.Inventory.First());
+			}
 
-            if (Singleton.Inventory.Count != 0 )//Inventory.Count <= InventoryMaxSize && 
-            {
-		        //IItem item = ItemProduction.Storage.First();
-		        Inventory.Add(Singleton.Inventory.First());
-	            Singleton.Inventory.Remove(Singleton.Inventory.First());
-		       // PrintItem(item);
-	            //DEBUG
-              Console.WriteLine("Booth" + BoothNumber + " daily quota: " + DailyQuota);
-            }
-            
-		    if (DailyQuota <= 0)
-		    {
-		        _timer.Stop();
+			if (DailyQuota <= 0)
+			{
+				_timer.Stop();
 				_timer.Dispose();
-				//DEBUG
-				Console.WriteLine("DEBUG: Timer stopped at booth " + BoothNumber);
-		    }
+			}
 		}
 
 		public void OnTimedEvent(Object source, ElapsedEventArgs e)
@@ -86,28 +76,21 @@ namespace BizzareBazaar
 			}
 		}
 
-        //tråd 
-	    public IItem ItemUpForSale()
-	    {
-	        //IItem item = Inventory.First();
+		public IItem ItemUpForSale()
+		{
+			return Inventory.First();
+		}
 
-		    return Inventory.First();
-	    }
-
-
-		// Fjernes fra Interface?
 		public string GetDescription()
 		{
-		    String info = "Booth#" + BoothNumber;
-
-		    return info;
+			return "Booth#" + BoothNumber;
 		}
 
 
-        //La stå
-	    public void PrintItem(IItem item)
-	    {
-	        Console.WriteLine("Item# " + item.GetItemNumber() + " " + item.GetDescription() + "Price is: " + item.GetPrice());
-	    }
+		//La stå
+		public void PrintItem(IItem item)
+		{
+			Console.WriteLine("Item# " + item.GetItemNumber() + " " + item.GetDescription() + "Price is: " + item.GetPrice());
+		}
 	}
 }
