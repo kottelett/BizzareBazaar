@@ -13,8 +13,6 @@ namespace BazaarUnitTest
     [TestFixture]
    public class ItemProductionTest
     {
-
-
         // Testing unit testing itself with positivetest
         [Test]
         public void PositiveTest()
