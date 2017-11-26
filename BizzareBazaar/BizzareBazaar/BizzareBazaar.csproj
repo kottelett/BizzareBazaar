@@ -71,13 +71,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MVC\Models\WizardCustomer.cs" />
     <Compile Include="MVC\View.cs" />
-<<<<<<< HEAD
     <Compile Include="Item\DevanaRsDecorator.cs" />
     <Compile Include="Item\StribogRsdecorator.cs" />
     <Compile Include="Item\SanneshRsDecorator.cs" />
-=======
-    <Compile Include="Singleton.cs" />
->>>>>>> 0a0133af85ff5b66d393a777d85595c2bcff016c
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
