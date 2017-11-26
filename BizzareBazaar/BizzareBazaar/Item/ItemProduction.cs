@@ -12,22 +12,23 @@ namespace BizzareBazaar
     {
         private static Timer _timer;
 	    //public static List<IItem> Storage { get; set; } = new List<IItem>();
-	    public static List<IItem> Storage = Singleton.Inventory;
-        private static int _itemNumber;
-		
-		
+	    public static Singleton Storage = Singleton.Instance;
+	    //public static volatile List<IItem> Storage = Singleton.Inventory;
+        private static volatile int _itemNumber;
+	    private static readonly Object Lock = new Object();
 
-        public void PrintStorage()
-        {
-            for (int i = 0; i < Storage.Count; i++)
-            {
-                PrintItem(Storage[i]);
-            }
-        }
+
+		public void PrintStorage()
+		{
+			foreach (IItem item in Singleton.Inventory)
+			{
+				PrintItem(item);
+			}
+		}
 
 	    public List<IItem> GetInventory()
 	    {
-		    return Storage;
+		    return Singleton.Inventory;
 	    }
 
         public void PrintItem(IItem item)
@@ -36,7 +37,8 @@ namespace BizzareBazaar
                 item.GetDescription() + " | Price: " + item.GetPrice());
 
         }
-        // Triggers OnTimedEvent every 1000 ms
+        
+	    
 	    public static void SetTimerAndProduceItems()
         {
 	        _timer = new Timer {Interval = 200};
@@ -50,10 +52,7 @@ namespace BizzareBazaar
         {
 	        if (!StopProduction())
 	        {
-		        ProduceItems();
-		        //ItemCreator item = new ItemCreator();
-		        //Storage.Add(item.CreateRndItem(_itemNumber));
-		        //_itemNumber++;
+		        ProduceItem();
 			}
 	        else
 	        {
@@ -63,18 +62,18 @@ namespace BizzareBazaar
 
         }
 
-	    public static void ProduceItems()
+	    public static void ProduceItem()
 	    {
-			ItemCreator item = new ItemCreator();
-		    Storage.Add(item.CreateRndItem(_itemNumber));
-		    _itemNumber++;
+		    lock (Lock)
+		    {
+			    ItemCreator item = new ItemCreator();
+			    Singleton.Inventory.Add(item.CreateRndItem(_itemNumber));
+			    _itemNumber++;
+		    }
 		}
 	    private static bool StopProduction()
 	    {
-		    if (_itemNumber > 100)
-				return true;
-		    
-		    return false;
+		    return _itemNumber > 100;
 	    }
 
     }
