@@ -74,6 +74,7 @@
     <Compile Include="Item\DevanaRsDecorator.cs" />
     <Compile Include="Item\StribogRsdecorator.cs" />
     <Compile Include="Item\SanneshRsDecorator.cs" />
+    <Compile Include="Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
