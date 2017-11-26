@@ -8,12 +8,14 @@ namespace BizzareBazaar
 	class Booth : IManipulateInventory
 	{
 
+	   public int DailyQuota { get; set; }
 
 	   public List<IItem> Inventory { get; set; } = new List<IItem>();
 		
 
 		public int BoothNumber { get; set; }
 
+		private readonly Timer _timer = new Timer { Interval = 500}; 
 
 	    public bool SoldQuota = false;
 
@@ -48,12 +50,16 @@ namespace BizzareBazaar
 
 		public void SetTimerAndFetchItems()
 		{
+			_timer.Elapsed += OnTimedEvent;
+			_timer.AutoReset = true;
+			_timer.Enabled = true;
 
 		}
 
 		public void FetchFirstItem()
 		{
 
+            if (Singleton.Inventory.Count != 0 )//Inventory.Count <= InventoryMaxSize && 
             {
 		        //IItem item = ItemProduction.Storage.First();
 		        Inventory.Add(Singleton.Inventory.First());
