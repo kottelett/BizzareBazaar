@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>BizzareBazaar.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
@@ -67,6 +70,9 @@
     <Compile Include="Item\ItemDecorator.cs" />
     <Compile Include="Item\MagicDmgDecorator.cs" />
     <Compile Include="MVC\Models\CustomerFactory.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MVC\Models\WizardCustomer.cs" />
@@ -74,6 +80,7 @@
     <Compile Include="Item\DevanaRsDecorator.cs" />
     <Compile Include="Item\StribogRsdecorator.cs" />
     <Compile Include="Item\SanneshRsDecorator.cs" />
+    <Compile Include="Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -86,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
+    <Folder Include="Customer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

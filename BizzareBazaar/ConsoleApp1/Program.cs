@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BazaarUnitTest
+namespace ConsoleApp1
 {
-    class MainTest
-    {
-
-	    public static void Main(string[] args)
-	    {
-		    
-	    }
-
+	class Program
+	{
+		static void Main(string[] args)
+		{
+		}
 	}
 }
